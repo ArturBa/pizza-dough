@@ -7,42 +7,16 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+      - uses: ./.github/actions/cache
 
-    strategy:
-      matrix:
-        node-version: [16, 18]
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Cache node modules
-        id: cache-nodemodules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          # caching node_modules
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Install Dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: |
-          npm ci
       - name: Lint
         run: |
           npm run lint
+
       - name: Test
         run: |
           npm run test -- -c production
+
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
@@ -55,12 +29,14 @@ jobs:
           indicators: true
           output: both
           thresholds: '60 80'
+
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
         with:
           recreate: true
           path: code-coverage-results.md
+
       - name: Build
         run: |
           npm run build
