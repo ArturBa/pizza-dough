@@ -30,7 +30,7 @@ runs:
           ${{ runner.os }}-
 
     - name: Install Dependencies
-      shell: "bash"
+      shell: "sh"
       if: steps.cache-nodemodules.outputs.cache-hit != 'true'
       run: |
         npm ci
