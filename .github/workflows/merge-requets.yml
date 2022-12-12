@@ -43,8 +43,8 @@ jobs:
       - name: Test
         run: |
           npm run test -- -c production
-              - name: Code Coverage Report
-      - uses: irongut/CodeCoverageSummary@v1.3.0
+      - name: Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
         with:
           filename: coverage/**/coverage-cobertura.xml
           badge: true
