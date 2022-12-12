@@ -4,7 +4,8 @@ import { GoogleTagService } from '../google-tag.service';
 
 @Component({
   selector: 'app-analytics',
-  template: '<div></div>',
+  styles: [':host {display:none;visibility:hidden}'],
+  template: '',
 })
 export class AnalyticsComponent implements AfterViewInit, OnDestroy {
   protected destroy$ = new Subject<boolean>();
