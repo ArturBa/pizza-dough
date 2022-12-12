@@ -1,0 +1,22 @@
+name: Deploy to GitHub Pages via angular-cli-ghpages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/cache
+
+      - name: Prepare and deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install
+          npm run ng -- deploy --base-href=/pizza-dought/ --name="ArturBa" --email="pizzadoughtgenerator@gmail.com" --no-silent
