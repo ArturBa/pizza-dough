@@ -1,12 +1,12 @@
-name: "Cache node modules"
-description: "Cache node modules and get ready for real actions"
+name: 'Cache node modules'
+description: 'Cache node modules and get ready for real actions'
 inputs:
   node_version:
     required: false
-    description: "Node version used in the job"
-    default: "16"
+    description: 'Node version used in the job'
+    default: '16'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Use Node.js ${{ inputs.node_version }}
       uses: actions/setup-node@v1
@@ -28,7 +28,7 @@ runs:
           ${{ runner.os }}-
 
     - name: Install Dependencies
-      shell: "sh"
+      shell: 'sh'
       if: steps.cache-nodemodules.outputs.cache-hit != 'true'
       run: |
         npm ci
