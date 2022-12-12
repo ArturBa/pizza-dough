@@ -1,0 +1,15 @@
+footer {
+  font-weight: 600;
+  background: hsl(37 48% 95%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 64px;
+  aspect-ratio: 10/1;
+  width: 100%;
+
+  border-color: hsl(0 0 0.81);
+  border-top: solid 1px;
+}
