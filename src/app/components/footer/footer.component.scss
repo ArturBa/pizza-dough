@@ -1,3 +1,5 @@
+@use 'media-queries';
+
 footer {
   font-weight: 600;
   background: hsl(37 48% 95%);
@@ -6,10 +8,13 @@ footer {
   align-items: center;
   justify-content: center;
 
-  min-height: 64px;
-  aspect-ratio: 10/1;
+  height: 4rem;
   width: 100%;
 
   border-color: hsl(0 0 0.81);
   border-top: solid 1px;
+
+  @include media-queries.gt-sm() {
+    height: 8rem;
+  }
 }
