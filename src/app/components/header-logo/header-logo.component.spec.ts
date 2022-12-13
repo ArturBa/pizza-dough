@@ -19,4 +19,9 @@ describe('HeaderLogoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contains a logo as svg', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('svg')).toBeTruthy();
+  });
 });
