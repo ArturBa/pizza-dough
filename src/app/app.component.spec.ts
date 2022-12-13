@@ -17,10 +17,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  // it(`should have as title 'pizza-dought'`, () => {
+  // it(`should have as title 'pizza-dough'`, () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('pizza-dought');
+  //   expect(app.title).toEqual('pizza-dough');
   // });
 
   // it('should render title', () => {
@@ -28,7 +28,7 @@ describe('AppComponent', () => {
   //   fixture.detectChanges();
   //   const compiled = fixture.nativeElement as HTMLElement;
   //   expect(compiled.querySelector('.content span')?.textContent).toContain(
-  //     'pizza-dought app is running!'
+  //     'pizza-dough app is running!'
   //   );
   // });
 });

@@ -1,0 +1,10 @@
+@use 'media-queries';
+
+img {
+  aspect-ratio: 1/1;
+  width: 2rem;
+
+  @include media-queries.gt-sm {
+    width: 4rem;
+  }
+}
