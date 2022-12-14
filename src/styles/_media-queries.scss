@@ -90,3 +90,9 @@ $screen-xl-max: 5000px;
     @content;
   }
 }
+
+@mixin web {
+  @media only screen and (min-width: #{$screen-sm-min}) and (pointer: fine) {
+    @content;
+  }
+}
