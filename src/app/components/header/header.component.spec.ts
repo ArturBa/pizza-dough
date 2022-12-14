@@ -20,4 +20,20 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contains a logo image', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-header-logo')).toBeTruthy();
+  });
+
+  it('should contains a h1 title', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')).toBeTruthy();
+  });
+
+  it('should contains a h1 title', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const header = compiled.querySelector('h1');
+    expect(header?.textContent).toContain('Pizza Dough Generator');
+  });
 });
