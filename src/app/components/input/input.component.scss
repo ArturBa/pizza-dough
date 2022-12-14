@@ -1,0 +1,58 @@
+@use 'color';
+
+$gray400: map-get(color.$gray, 400);
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  line-height: 182%;
+  color: map-get(color.$gray, 300);
+
+  &:focus-within {
+    font-weight: 600;
+  }
+
+  .input-wrapper {
+    display: flex;
+    align-items: baseline;
+    overflow: hidden;
+
+    border: $gray400 solid 1px;
+    border-radius: 8px;
+    background-color: white;
+
+    &:focus-within {
+      font-weight: 500;
+      $color: map-get(
+        $map: color.$accent,
+        $key: 200,
+      );
+      border: purple solid 2px;
+    }
+
+    & > * {
+      padding-inline: 12px;
+      padding-block: 14px;
+    }
+  }
+
+  input {
+    flex: 1 1 0;
+    line-height: 1rem;
+    color: map-get(color.$gray, 300);
+    border: 0;
+
+    &:focus-visible {
+      outline: none;
+    }
+    &:has(:focus, :focus-visible) {
+      outline: none;
+    }
+  }
+
+  .input-after {
+    background-color: map-get($map: color.$gray, $key: 850);
+    border-left: $gray400 1px solid;
+  }
+}

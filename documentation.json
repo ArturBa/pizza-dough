@@ -1,0 +1,1022 @@
+{
+  "pipes": [],
+  "interfaces": [],
+  "injectables": [
+    {
+      "name": "GoogleTagService",
+      "id": "injectable-GoogleTagService-241b541dae786b36a95d114b16da16f95e4d3f1586c90e0e4944f13cfa6198a6a1ca199c8f6b0daa4c848a3dd39f5d7402d96d8555f7a40bded02999db7ba3ad",
+      "file": "src/app/analytics/google-tag.service.ts",
+      "properties": [],
+      "methods": [
+        {
+          "name": "initNavigation",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 11,
+          "deprecated": false,
+          "deprecationMessage": ""
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "description": "",
+      "rawdescription": "\n",
+      "sourceCode": "import { Injectable } from '@angular/core';\nimport { NavigationEnd, Router } from '@angular/router';\nimport { filter } from 'rxjs';\n\nconst gTagValue = 'G-4J7MDXXQLZ';\n\n@Injectable()\nexport class GoogleTagService {\n  constructor(protected readonly router: Router) {}\n\n  initNavigation(): void {\n    this.router.events\n      .pipe(filter(event => event instanceof NavigationEnd))\n      .subscribe(event => {\n        if (event instanceof NavigationEnd) {\n          gtag('config', gTagValue, {\n            page_page: event.urlAfterRedirects,\n            page_location: document.location.href,\n          });\n        }\n      });\n  }\n}\n",
+      "constructorObj": {
+        "name": "constructor",
+        "description": "",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "args": [
+          {
+            "name": "router",
+            "type": "Router",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "line": 8,
+        "jsdoctags": [
+          {
+            "name": "router",
+            "type": "Router",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      "type": "injectable"
+    }
+  ],
+  "guards": [],
+  "interceptors": [],
+  "classes": [],
+  "directives": [],
+  "components": [
+    {
+      "name": "AnalyticsComponent",
+      "id": "component-AnalyticsComponent-89b4bf0b0fa5cafaff52d2f8581b0fe3e082d9a04e6ba0297dfd9346c2a0bfb0a47129f32183190fed6ad073e99a26baeb4afa2894c6042b752dc3aa4f6abedc",
+      "file": "src/app/analytics/analytics/analytics.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-analytics",
+      "styleUrls": [],
+      "styles": [":host {display:none;visibility:hidden}"],
+      "template": "",
+      "templateUrl": [],
+      "viewProviders": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [
+        {
+          "name": "destroy$",
+          "defaultValue": "new Subject<boolean>()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "optional": false,
+          "description": "",
+          "line": 11,
+          "modifierKind": [122]
+        }
+      ],
+      "methodsClass": [
+        {
+          "name": "ngAfterViewInit",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 15,
+          "deprecated": false,
+          "deprecationMessage": ""
+        },
+        {
+          "name": "ngOnDestroy",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 19,
+          "deprecated": false,
+          "deprecationMessage": ""
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { AfterViewInit, Component, OnDestroy } from '@angular/core';\nimport { Subject } from 'rxjs';\nimport { GoogleTagService } from '../google-tag.service';\n\n@Component({\n  selector: 'app-analytics',\n  styles: [':host {display:none;visibility:hidden}'],\n  template: '',\n})\nexport class AnalyticsComponent implements AfterViewInit, OnDestroy {\n  protected destroy$ = new Subject<boolean>();\n\n  constructor(protected readonly googleTagService: GoogleTagService) {}\n\n  ngAfterViewInit(): void {\n    this.googleTagService.initNavigation();\n  }\n\n  ngOnDestroy(): void {\n    this.destroy$.next(true);\n    this.destroy$.complete();\n  }\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": ":host {display:none;visibility:hidden}\n",
+      "constructorObj": {
+        "name": "constructor",
+        "description": "",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "args": [
+          {
+            "name": "googleTagService",
+            "type": "GoogleTagService",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "line": 11,
+        "jsdoctags": [
+          {
+            "name": "googleTagService",
+            "type": "GoogleTagService",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      "implements": ["AfterViewInit", "OnDestroy"]
+    },
+    {
+      "name": "AppComponent",
+      "id": "component-AppComponent-894355d2937f09cc0fa367ce1778b752c7f2a80b757bf2ed09617c79715db585546ffc26e3bd99ba7bec79d0b77dec0e2750e34a3f6a70b215312c4c9305b2bb",
+      "file": "src/app/app.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-root",
+      "styleUrls": ["./app.component.scss"],
+      "styles": [],
+      "templateUrl": ["./app.component.html"],
+      "viewProviders": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "@use 'media-queries';\n@use 'color';\n\n:host {\n  display: block;\n  width: clamp(300px, 100vw, 1144px);\n  margin: 0 auto;\n  background-color: map-get(color.$gray, 900);\n\n  > *:not(app-footer) {\n    margin-inline: 1rem;\n\n    @include media-queries.web {\n      margin-inline: 3.5rem;\n    }\n  }\n}\n",
+          "styleUrl": "./app.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<app-header></app-header>\n<hr />\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
+    },
+    {
+      "name": "FooterComponent",
+      "id": "component-FooterComponent-53bc80862ac78159f362fbbd89e750845eec8559c4ccae2cd9bbe7318e77d197dda4f1e23786106a637fd83dc78ff4b959b8823b0457ef4ae4950921e549fae4",
+      "file": "src/app/components/footer/footer.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-footer",
+      "styleUrls": ["./footer.component.scss"],
+      "styles": [],
+      "templateUrl": ["./footer.component.html"],
+      "viewProviders": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss'],\n})\nexport class FooterComponent {}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "@use 'media-queries';\n\nfooter {\n  font-weight: 600;\n  background: hsl(37 48% 95%);\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  height: 4rem;\n  width: 100%;\n\n  border-color: hsl(0 0 0.81);\n  border-top: solid 1px;\n\n  @include media-queries.web {\n    height: 8rem;\n  }\n}\n",
+          "styleUrl": "./footer.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<footer>Est. 2022</footer>\n"
+    },
+    {
+      "name": "HeaderComponent",
+      "id": "component-HeaderComponent-923107e1dbbaa3e13ea2a7752dcae733941ac535b7d232ed3bcd72471ac7c82e00d9725127ab62dbbb0d12273e6ec606725f42ac8875ab6a1a22674b80ee8359",
+      "file": "src/app/components/header/header.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-header",
+      "styleUrls": ["./header.component.scss"],
+      "styles": [],
+      "templateUrl": ["./header.component.html"],
+      "viewProviders": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent {}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "@use 'media-queries';\n@use 'color';\n\n:host {\n  display: block;\n}\n\nheader {\n  display: flex;\n  gap: 0.5rem;\n  align-items: center;\n  padding-top: 1.5rem;\n\n  @include media-queries.web {\n    gap: 1rem;\n    padding-top: 2rem;\n  }\n}\n\nh1 {\n  color: map-get(color.$accent, 500);\n  font-weight: 700;\n  font-size: 1.5rem;\n  margin: 0;\n\n  @include media-queries.web {\n    font-size: 3rem;\n    line-height: 3rem;\n  }\n}\n",
+          "styleUrl": "./header.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<header>\n  <app-header-logo></app-header-logo>\n  <h1>Pizza Dough Generator</h1>\n</header>\n"
+    },
+    {
+      "name": "HeaderLogoComponent",
+      "id": "component-HeaderLogoComponent-09a36a1ec2ec93b5c73c7dbfb9930bd35a47d698e8101a19b45c222df4ad814c4ab082928860480d928dae873839af2c900450ad78c48f1dcb66a7d35513dd19",
+      "file": "src/app/components/header-logo/header-logo.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-header-logo",
+      "styleUrls": ["./header-logo.component.scss"],
+      "styles": [],
+      "templateUrl": ["./header-logo.component.html"],
+      "viewProviders": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-header-logo',\n  templateUrl: './header-logo.component.html',\n  styleUrls: ['./header-logo.component.scss'],\n})\nexport class HeaderLogoComponent {}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "@use 'media-queries';\n\nsvg {\n  aspect-ratio: 1/1;\n  width: 2rem;\n\n  @include media-queries.web {\n    width: 4rem;\n    height: 4rem;\n  }\n}\n",
+          "styleUrl": "./header-logo.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<svg\n  width=\"32\"\n  height=\"32\"\n  viewBox=\"0 0 32 32\"\n  fill=\"none\"\n  xmlns=\"http://www.w3.org/2000/svg\"\n  role=\"img\"\n  aria-labelledby=\"svgTitle svgDescription\">\n  <title id=\"svgTitle\">Logo</title>\n  <desc id=\"svgDescription\">A logo containing a slice of pizza</desc>\n  <path\n    fill-rule=\"evenodd\"\n    clip-rule=\"evenodd\"\n    d=\"M8.828 2.79739C8.828 1.3388 10.0087 0.156382 11.4653 0.156377C13.7014 0.15637 16.0769 1.07512 18.2131 2.28244C20.4071 3.5224 22.6205 5.22166 24.5949 7.12315C26.5683 9.0237 28.3704 11.1911 29.6968 13.4053C30.996 15.5743 31.9796 18.0229 31.9796 20.4274C31.9796 21.886 30.7989 23.0684 29.3423 23.0684C27.8858 23.0684 26.7051 21.886 26.7051 20.4274C26.7051 19.3844 26.2417 17.9054 25.1736 16.1224C24.1325 14.3845 22.6469 12.5753 20.9387 10.9303C19.2315 9.28615 17.3694 7.87073 15.6207 6.88243C13.8143 5.86148 12.3798 5.43837 11.4653 5.43838C10.0088 5.43838 8.82801 4.25597 8.828 2.79739Z\"\n    fill=\"#BC823C\"\n    fill-opacity=\"0.6\" />\n  <path\n    d=\"M25.616 23.1857C25.616 16.5572 14.4922 6.23709 8.43697 6.23702L0.196988 32L25.616 23.1857Z\"\n    fill=\"#BC823C\"\n    fill-opacity=\"0.6\" />\n  <path\n    fill-rule=\"evenodd\"\n    clip-rule=\"evenodd\"\n    d=\"M13.426 11.883C13.426 11.3526 13.8554 10.9226 14.385 10.9226C14.7956 10.9226 15.1727 11.0853 15.4457 11.2396C15.7398 11.4058 16.024 11.6258 16.2716 11.8642C16.5188 12.1023 16.7541 12.3824 16.9339 12.6826C17.1039 12.9664 17.2767 13.355 17.2767 13.7889C17.2767 14.3193 16.8473 14.7493 16.3177 14.7493C15.7969 14.7493 15.373 14.3335 15.359 13.8153C15.3557 13.805 15.3412 13.7575 15.2891 13.6707C15.213 13.5436 15.0928 13.3938 14.9421 13.2486C14.7916 13.1038 14.6352 12.987 14.5031 12.9123C14.4122 12.8609 14.3629 12.8462 14.3526 12.8428C13.8379 12.8256 13.426 12.4025 13.426 11.883Z\"\n    fill=\"white\" />\n  <path\n    d=\"M13.9056 19.071C13.9056 19.6014 13.4762 20.0314 12.9466 20.0314C12.4169 20.0314 11.9875 19.6014 11.9875 19.071C11.9875 18.5406 12.4169 18.1107 12.9466 18.1107C13.4762 18.1107 13.9056 18.5406 13.9056 19.071Z\"\n    fill=\"white\" />\n  <path\n    fill-rule=\"evenodd\"\n    clip-rule=\"evenodd\"\n    d=\"M18.221 20.0313C18.7507 20.0313 19.18 19.6014 19.18 19.071C19.18 18.5406 18.7507 18.1106 18.221 18.1106C17.6914 18.1106 17.262 18.5406 17.262 19.071C17.262 19.6014 17.6914 20.0313 18.221 20.0313ZM18.221 21.9521C19.81 21.9521 21.098 20.6622 21.098 19.071C21.098 17.4798 19.81 16.1899 18.221 16.1899C16.6321 16.1899 15.344 17.4798 15.344 19.071C15.344 20.6622 16.6321 21.9521 18.221 21.9521Z\"\n    fill=\"white\" />\n  <path\n    fill-rule=\"evenodd\"\n    clip-rule=\"evenodd\"\n    d=\"M7.1925 16.6701C8.78143 16.6701 10.0695 15.3802 10.0695 13.789C10.0695 12.1978 8.78143 10.9079 7.1925 10.9079C5.60356 10.9079 4.31548 12.1978 4.31548 13.789C4.31548 15.3802 5.60356 16.6701 7.1925 16.6701ZM7.1925 18.5908C9.84072 18.5908 11.9875 16.441 11.9875 13.789C11.9875 11.137 9.84072 8.98718 7.1925 8.98718C4.54427 8.98718 2.39746 11.137 2.39746 13.789C2.39746 16.441 4.54427 18.5908 7.1925 18.5908Z\"\n    fill=\"white\" />\n  <path\n    fill-rule=\"evenodd\"\n    clip-rule=\"evenodd\"\n    d=\"M11.0287 29.1548C12.6176 29.1548 13.9057 27.8649 13.9057 26.2737C13.9057 24.6826 12.6176 23.3927 11.0287 23.3927C9.43974 23.3927 8.15166 24.6826 8.15166 26.2737C8.15166 27.8649 9.43974 29.1548 11.0287 29.1548ZM11.0287 31.0756C13.6769 31.0756 15.8237 28.9257 15.8237 26.2737C15.8237 23.6218 13.6769 21.4719 11.0287 21.4719C8.38045 21.4719 6.23364 23.6218 6.23364 26.2737C6.23364 28.9257 8.38045 31.0756 11.0287 31.0756Z\"\n    fill=\"white\" />\n</svg>\n"
+    },
+    {
+      "name": "InputComponent",
+      "id": "component-InputComponent-4a4512317514b80c54c002bc4f6ece1c2b5acc930909e1ac09b5475e10f4dc91994442c2dfd0af3889882da35df8d320efe8fd71643e192da5f4a80904dbfda0",
+      "file": "src/app/components/input/input.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-input",
+      "styleUrls": ["./input.component.scss"],
+      "styles": [],
+      "templateUrl": ["./input.component.html"],
+      "viewProviders": [],
+      "inputsClass": [
+        {
+          "name": "label",
+          "defaultValue": "null",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 9,
+          "type": "string | null",
+          "decorators": []
+        },
+        {
+          "name": "placeholder",
+          "defaultValue": "null",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 11,
+          "type": "string | null",
+          "decorators": []
+        },
+        {
+          "name": "unitLabel",
+          "defaultValue": "null",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 10,
+          "type": "string | null",
+          "decorators": []
+        }
+      ],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n})\nexport class InputComponent {\n  @Input() label: string | null = null;\n  @Input() unitLabel: string | null = null;\n  @Input() placeholder: string | null = null;\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "@use 'color';\n\nlabel {\n  display: flex;\n  flex-direction: column;\n  font-size: 0.875rem;\n  line-height: 182%;\n  color: map-get(color.$gray, 300);\n\n  input {\n    line-height: 1rem;\n    padding-inline: 12px;\n    padding-block: 12px;\n    border: map-get(color.$gray, 400) solid 1px;\n    border-radius: 8px;\n    color: map-get(color.$gray, 300);\n  }\n}\n",
+          "styleUrl": "./input.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<label>\n  {{ label }}\n  <input placeholder=\"{{ placeholder }}\" />\n</label>\n"
+    }
+  ],
+  "modules": [
+    {
+      "name": "AnalyticsModule",
+      "id": "module-AnalyticsModule-29fc21ff3a79c695e70de5870efc14474bc80d9f73ecfe3258ed7d981001651052f83fc0ee5d77120b2391e595943fb10ed46ebba98e9e2f6a5fb88a65a9f382",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "src/app/analytics/analytics.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { AnalyticsComponent } from './analytics/analytics.component';\nimport { GoogleTagService } from './google-tag.service';\n\n@NgModule({\n  declarations: [AnalyticsComponent],\n  imports: [CommonModule],\n  providers: [GoogleTagService],\n  bootstrap: [AnalyticsComponent],\n})\nexport class AnalyticsModule {}\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": [
+            {
+              "name": "GoogleTagService"
+            }
+          ]
+        },
+        {
+          "type": "declarations",
+          "elements": [
+            {
+              "name": "AnalyticsComponent"
+            }
+          ]
+        },
+        {
+          "type": "imports",
+          "elements": []
+        },
+        {
+          "type": "exports",
+          "elements": []
+        },
+        {
+          "type": "bootstrap",
+          "elements": [
+            {
+              "name": "AnalyticsComponent"
+            }
+          ]
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    },
+    {
+      "name": "AppModule",
+      "id": "module-AppModule-aba1d9460b0df97d80a3fac0833b86a526557a90cdc5e3f98aa6b99ed9c4da9a71bd4691b6da8021d3dd66f8f32eac155e4eb643a0885fadb0aec9454a3f03e4",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "src/app/app.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AnalyticsModule } from './analytics/analytics.module';\nimport { AnalyticsComponent } from './analytics/analytics/analytics.component';\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { ComponentsModule } from './components/components.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, AppRoutingModule, AnalyticsModule, ComponentsModule],\n  providers: [],\n  bootstrap: [AppComponent, AnalyticsComponent],\n})\nexport class AppModule {}\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": []
+        },
+        {
+          "type": "declarations",
+          "elements": [
+            {
+              "name": "AppComponent"
+            }
+          ]
+        },
+        {
+          "type": "imports",
+          "elements": [
+            {
+              "name": "AnalyticsModule"
+            },
+            {
+              "name": "AppRoutingModule"
+            }
+          ]
+        },
+        {
+          "type": "exports",
+          "elements": []
+        },
+        {
+          "type": "bootstrap",
+          "elements": [
+            {
+              "name": "AppComponent"
+            },
+            {
+              "name": "AnalyticsComponent"
+            }
+          ]
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    },
+    {
+      "name": "AppRoutingModule",
+      "id": "module-AppRoutingModule-0dc291a0afd3272506872fe6fa763d13caf4b8fd5fcd9d9673ea721d0260167c3929f23647cd16ac134dd8c37af92788e0497290e40e237a1993e3e2cd47364b",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "src/app/app-routing.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule {}\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": []
+        },
+        {
+          "type": "declarations",
+          "elements": []
+        },
+        {
+          "type": "imports",
+          "elements": []
+        },
+        {
+          "type": "exports",
+          "elements": []
+        },
+        {
+          "type": "bootstrap",
+          "elements": []
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    },
+    {
+      "name": "ComponentsModule",
+      "id": "module-ComponentsModule-fca560d8c6cc40000b7eea4711ce89547cb43e5e0c929ca7e57a9d146237c3ec1601615fb39e8640fbc18095d76fcdcae8381ac31a56ffd46f7526d91c9227aa",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "src/app/components/components.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FooterComponent } from './footer/footer.component';\nimport { HeaderComponent } from './header/header.component';\nimport { HeaderLogoComponent } from './header-logo/header-logo.component';\nimport { InputComponent } from './input/input.component';\n\nconst exports = [FooterComponent, HeaderComponent];\n\n@NgModule({\n  declarations: [...exports, HeaderLogoComponent, InputComponent],\n  imports: [CommonModule],\n  exports,\n})\nexport class ComponentsModule {}\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": []
+        },
+        {
+          "type": "declarations",
+          "elements": [
+            {
+              "name": "FooterComponent"
+            },
+            {
+              "name": "HeaderComponent"
+            },
+            {
+              "name": "HeaderLogoComponent"
+            },
+            {
+              "name": "InputComponent"
+            }
+          ]
+        },
+        {
+          "type": "imports",
+          "elements": []
+        },
+        {
+          "type": "exports",
+          "elements": [
+            {
+              "name": "FooterComponent"
+            },
+            {
+              "name": "HeaderComponent"
+            }
+          ]
+        },
+        {
+          "type": "bootstrap",
+          "elements": []
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    }
+  ],
+  "miscellaneous": {
+    "variables": [
+      {
+        "name": "exports",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/components.module.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "[]",
+        "defaultValue": "[FooterComponent, HeaderComponent]"
+      },
+      {
+        "name": "gTagValue",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/analytics/google-tag.service.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "string",
+        "defaultValue": "'G-4J7MDXXQLZ'"
+      },
+      {
+        "name": "Large",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/input/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Placeholder",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/input/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Primary",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/footer/footer.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Primary",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/header/header.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Primary",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/input/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Secondary",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/input/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Small",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/input/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/footer/footer.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story<FooterComponent>",
+        "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n})"
+      },
+      {
+        "name": "Template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/header/header.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story<HeaderComponent>",
+        "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
+      },
+      {
+        "name": "Template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/components/input/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story<InputComponent>",
+        "defaultValue": "(args: InputComponent) => ({\n  props: args,\n})"
+      }
+    ],
+    "functions": [],
+    "typealiases": [],
+    "enumerations": [],
+    "groupedVariables": {
+      "src/app/components/components.module.ts": [
+        {
+          "name": "exports",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/components.module.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "[]",
+          "defaultValue": "[FooterComponent, HeaderComponent]"
+        }
+      ],
+      "src/app/analytics/google-tag.service.ts": [
+        {
+          "name": "gTagValue",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/analytics/google-tag.service.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "string",
+          "defaultValue": "'G-4J7MDXXQLZ'"
+        }
+      ],
+      "src/app/components/input/input.stories.ts": [
+        {
+          "name": "Large",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/input/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Placeholder",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/input/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Primary",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/input/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Secondary",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/input/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Small",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/input/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/input/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<InputComponent>",
+          "defaultValue": "(args: InputComponent) => ({\n  props: args,\n})"
+        }
+      ],
+      "src/app/components/footer/footer.stories.ts": [
+        {
+          "name": "Primary",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/footer/footer.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/footer/footer.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<FooterComponent>",
+          "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n})"
+        }
+      ],
+      "src/app/components/header/header.stories.ts": [
+        {
+          "name": "Primary",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/header/header.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/components/header/header.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<HeaderComponent>",
+          "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
+        }
+      ]
+    },
+    "groupedFunctions": {},
+    "groupedEnumerations": {},
+    "groupedTypeAliases": {}
+  },
+  "routes": {
+    "name": "<root>",
+    "kind": "module",
+    "className": "AppModule",
+    "children": [
+      {
+        "name": "routes",
+        "filename": "src/app/app-routing.module.ts",
+        "module": "AppRoutingModule",
+        "children": [],
+        "kind": "module"
+      }
+    ]
+  },
+  "coverage": {
+    "count": 0,
+    "status": "low",
+    "files": [
+      {
+        "filePath": "src/app/analytics/analytics/analytics.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "AnalyticsComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/5",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/analytics/google-tag.service.ts",
+        "type": "injectable",
+        "linktype": "injectable",
+        "name": "GoogleTagService",
+        "coveragePercent": 0,
+        "coverageCount": "0/3",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/analytics/google-tag.service.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "gTagValue",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/app.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "AppComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/components.module.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "exports",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/footer/footer.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "FooterComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/footer/footer.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Primary",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/footer/footer.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/header-logo/header-logo.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "HeaderLogoComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/header/header.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "HeaderComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/header/header.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Primary",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/header/header.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "InputComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/4",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Large",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Placeholder",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Primary",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Secondary",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Small",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/components/input/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      }
+    ]
+  }
+}
