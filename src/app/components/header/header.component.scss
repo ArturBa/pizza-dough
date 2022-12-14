@@ -11,7 +11,7 @@ header {
   align-items: center;
   padding-top: 1.5rem;
 
-  @include media-queries.gt-sm {
+  @include media-queries.web {
     gap: 1rem;
     padding-top: 2rem;
   }
@@ -23,7 +23,7 @@ h1 {
   font-size: 1.5rem;
   margin: 0;
 
-  @include media-queries.gt-sm {
+  @include media-queries.web {
     font-size: 3rem;
     line-height: 3rem;
   }

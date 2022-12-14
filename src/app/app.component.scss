@@ -10,7 +10,7 @@
   > *:not(app-footer) {
     margin-inline: 1rem;
 
-    @include media-queries.gt-sm {
+    @include media-queries.web {
       margin-inline: 3.5rem;
     }
   }
