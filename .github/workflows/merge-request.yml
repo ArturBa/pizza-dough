@@ -45,3 +45,6 @@ jobs:
           npm run build
 
       - uses: ./.github/actions/storybook
+        with:
+          CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

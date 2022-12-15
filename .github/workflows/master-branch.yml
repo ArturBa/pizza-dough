@@ -22,3 +22,6 @@ jobs:
           npm run ng -- deploy --base-href=/pizza-dough/ --name="ArturBa" --email="pizzadoughgenerator@gmail.com" --no-silent
 
       - uses: ./.github/actions/storybook
+        with:
+          CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

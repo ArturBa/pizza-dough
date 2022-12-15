@@ -2,6 +2,6 @@
   {{ label }}
   <div class="input-wrapper">
     <input placeholder="{{ placeholder }}" />
-    <div class="input-after">{{ unitLabel }}</div>
+    <div *ngIf="!!unitLabel" class="input-after">{{ unitLabel }}</div>
   </div>
 </label>
