@@ -24,12 +24,6 @@ UnitLabel.args = {
 export const NoLabel = Template.bind({});
 NoLabel.args = {};
 
-export const Small = Template.bind({});
-Small.args = {
-  // size: 'small',
-  label: 'Your favorite city',
-};
-
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeholder: 'Vienna',
