@@ -1,5 +1,5 @@
 {
-  "*.{json,md}": "npx prettier --write .",
+  "*.{json,md,yml,yaml}": "npx prettier --write .",
   "*.{scss,html}": "npx prettier --write .",
   "src/**/*.ts": ["ng-lint-staged lint --fix --"]
 }

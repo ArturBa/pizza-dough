@@ -3,10 +3,10 @@ description: 'Update the chromatic page with new storybooks'
 inputs:
   GITHUB_TOKEN:
     required: true
-    description: "Github token"
+    description: 'Github token'
   CHROMATIC_TOKEN:
     required: true
-    description: "Chromatic token"
+    description: 'Chromatic token'
 runs:
   using: 'composite'
   steps:
