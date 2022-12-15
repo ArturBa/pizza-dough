@@ -43,3 +43,4 @@ Thumbs.db
 
 # Storybook compodoc
 documentation.json
+/storybook-static/

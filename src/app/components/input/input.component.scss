@@ -15,7 +15,6 @@ label {
 
   .input-wrapper {
     display: flex;
-    align-items: baseline;
     overflow: hidden;
 
     border: $gray400 solid 1px;
@@ -29,24 +28,27 @@ label {
         $key: 200,
       );
       border: purple solid 2px;
+
+      .input-after {
+        border-left-width: 2px;
+        border-left-color: purple;
+      }
     }
 
     & > * {
+      padding-inline: 12px;
       padding-block: 14px;
+      line-height: 1rem;
+      font-size: 1rem;
     }
   }
 
   input {
-    padding-inline: 12px;
     flex: 1 1 0;
-    line-height: 1rem;
     color: map-get(color.$gray, 300);
     border: 0;
 
-    &:focus-visible {
-      outline: none;
-    }
-    &:has(:focus, :focus-visible) {
+    &:where(:focus, :focus-visible) {
       outline: none;
     }
   }

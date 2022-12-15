@@ -2,13 +2,14 @@
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
     "types": ["node", "gtag.js"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
   "exclude": [
     "../src/test.ts",
     "../src/**/*.spec.ts",
     "../projects/**/*.spec.ts"
   ],
-  "include": ["../src/**/*", "../projects/**/*"],
+  "include": ["../src/**/*", "../projects/**/*", "./*.ts"],
   "files": ["./typings.d.ts"]
 }
