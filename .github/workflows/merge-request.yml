@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history (chromatic)
 
       - uses: ./.github/actions/cache
 
@@ -43,3 +45,8 @@ jobs:
       - name: Build
         run: |
           npm run build
+
+      - uses: ./.github/actions/storybook
+        with:
+          CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

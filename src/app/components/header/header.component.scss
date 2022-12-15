@@ -10,6 +10,7 @@ header {
   gap: 0.5rem;
   align-items: center;
   padding-top: 1.5rem;
+  background-color: map-get($map: color.$gray, $key: 900);
 
   @include media-queries.web {
     gap: 1rem;

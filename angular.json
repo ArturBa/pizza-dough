@@ -106,6 +106,19 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "pizza-dough:build:development",
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "pizza-dough:build:production"
+          }
         }
       }
     }

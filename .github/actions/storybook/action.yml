@@ -1,0 +1,17 @@
+name: 'Storybook'
+description: 'Update the chromatic page with new storybooks'
+inputs:
+  GITHUB_TOKEN:
+    required: true
+    description: 'Github token'
+  CHROMATIC_TOKEN:
+    required: true
+    description: 'Chromatic token'
+runs:
+  using: 'composite'
+  steps:
+    - name: Storybook
+      uses: chromaui/action@v1
+      with:
+        token: ${{ inputs.GITHUB_TOKEN }}
+        projectToken: ${{ inputs.CHROMATIC_TOKEN }}
