@@ -14,11 +14,23 @@ export const parameters = {
     },
   },
   docs: { inlineStories: true },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: '#f8f8f8',
+      },
+      {
+        name: 'dark',
+        value: '#333333',
+      },
+    ],
+  },
 };
 
 export const decorators: Decorator[] = [
   componentWrapperDecorator(
-    story =>
-      `<div style="margin: 1em; padding: 3rem; background-color: white;">${story}</div>`
+    story => `<div style="padding: 3rem">${story}</div>`
   ),
 ];
