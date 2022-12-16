@@ -1,4 +1,4 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import { StoryObj, Meta, moduleMetadata } from '@storybook/angular';
 import { HeaderLogoComponent } from '../header-logo/header-logo.component';
 import { HeaderComponent } from './header.component';
 
@@ -12,9 +12,5 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {};
+type Story = StoryObj<HeaderComponent>;
+export const Template: Story = {};
