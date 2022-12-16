@@ -5,5 +5,4 @@ import { Directive, HostBinding } from '@angular/core';
 })
 export class InputDirective {
   @HostBinding('class.app-input') class = true;
-  // constructor() {}
 }
