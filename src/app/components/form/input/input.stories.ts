@@ -22,6 +22,7 @@ class StoryInputComponent {
 }
 
 const meta: Meta<StoryInputComponent> = {
+  title: 'Form/Input',
   component: StoryInputComponent,
   decorators: [
     moduleMetadata({
