@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/angular';
+import { StoryObj, Meta } from '@storybook/angular';
 import { FooterComponent } from './footer.component';
 
 export default {
@@ -6,9 +6,5 @@ export default {
   component: FooterComponent,
 } as Meta;
 
-const Template: Story<FooterComponent> = (args: FooterComponent) => ({
-  props: args,
-});
-
-export const Primary = Template.bind({});
-Primary.args = {};
+type Story = StoryObj<FooterComponent>;
+export const Template: Story = {};
