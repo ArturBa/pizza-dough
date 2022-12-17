@@ -12,7 +12,16 @@ import { InputAfterDirective } from '../input-after/input-after.directive';
   template: `
     <app-form-field>
       <label *ngIf="label" [for]="inputId">{{ label }}</label>
-      <input [id]="inputId" appSelector placeholder="{{ placeholder }}" />
+      <input
+        [id]="inputId"
+        appSelector
+        placeholder="{{ placeholder }}"
+        list="story-list" />
+      <datalist id="story-list">
+        <option *ngFor="let value of values" [value]="value">
+          {{ value }}
+        </option>
+      </datalist>
     </app-form-field>
   `,
 })
@@ -20,7 +29,7 @@ class StorySelectorComponent {
   @Input() label: string | undefined;
   @Input() inputAfter: string | undefined;
   @Input() placeholder: string | undefined;
-  @Input() values: string[] = ['NY Style', 'Neapolitana', 'Chicago', 'Detroid'];
+  @Input() values: string[] = [];
   inputId = 'story-selector';
 }
 
@@ -45,12 +54,13 @@ type Story = StoryObj<StorySelectorComponent>;
 export const Template: Story = {
   args: {
     label: 'Select your fav pizza style',
+    values: ['NY Style', 'Neapolitana', 'Chicago', 'Detroid'],
   },
 };
 
 export const Placeholder: Story = {
   args: {
-    label: 'Select your fav pizza style',
+    ...Template.args,
     placeholder: 'New York Pizza',
   },
 };

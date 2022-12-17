@@ -63,12 +63,12 @@ $border-radius: 8px;
   }
 
   .app-input-after {
-    background-color: $gray-background;
-    outline: solid $regular-color 2px;
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
   span.app-input-after {
+    background-color: $gray-background;
+    outline: solid $regular-color 2px;
     vertical-align: middle;
   }
 }
