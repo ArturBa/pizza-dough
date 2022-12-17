@@ -14,6 +14,11 @@ $gray-background: map-get(
   $key: 850,
 );
 
+@mixin internal-padding {
+  padding-inline: 14px;
+  padding-block: 12px;
+}
+
 $border-radius: 8px;
 
 .form-field-wrapper {
@@ -28,7 +33,7 @@ $border-radius: 8px;
   color: $black-color;
 
   &:focus-within,
-  &:focus-within .app-input-after-class {
+  &:focus-within .app-input-after {
     outline-color: $focus-color;
   }
 
@@ -44,25 +49,26 @@ $border-radius: 8px;
     flex: 1 1 0;
     outline: none;
     border: none;
-    padding-bottom: 12px;
+    padding: 0;
 
     background-color: transparent;
   }
 
-  & > *:not(label) {
-    padding-inline: 14px;
-    padding-top: 12px;
-
-    font-size: 1rem;
+  & > *:not(label, app-selector-button) {
+    @include internal-padding;
+  }
+  & > * {
+    font-size: 0.875rem;
+    line-height: 1rem;
   }
 
-  .app-input-after-class {
+  .app-input-after {
     background-color: $gray-background;
     outline: solid $regular-color 2px;
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
-  span.app-input-after-class {
+  span.app-input-after {
     vertical-align: middle;
   }
 }

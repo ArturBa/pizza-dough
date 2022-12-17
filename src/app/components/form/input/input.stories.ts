@@ -26,7 +26,8 @@ const meta: Meta<StoryInputComponent> = {
   component: StoryInputComponent,
   decorators: [
     moduleMetadata({
-      declarations: [FormFieldComponent, InputDirective, InputAfterDirective],
+      imports: [InputDirective, InputAfterDirective],
+      declarations: [FormFieldComponent],
     }),
   ],
 };
