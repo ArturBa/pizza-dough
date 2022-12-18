@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { FormService } from './form.service';
-import { GetOvenTypes, SetOvenType } from './form.actions';
+import { FormService } from '../service/form.service';
+import {
+  GetOvenTypes,
+  GetRecipes,
+  SetOvenType,
+  SetRecipe,
+} from './form.actions';
 import { tap } from 'rxjs';
-
-export interface OvenTypes {
-  key: string;
-  value: string;
-}
-
-export interface FormStateModel {
-  ovenTypes: OvenTypes[];
-  selectedOvenType: string;
-}
+import { FormStateModel, OvenTypes, RecipeListItem } from './form.model';
 
 type Ctx = StateContext<FormStateModel>;
 
@@ -21,6 +17,8 @@ type Ctx = StateContext<FormStateModel>;
   defaults: {
     ovenTypes: [],
     selectedOvenType: 'S',
+    recipes: [],
+    selectedRecipe: 0,
   },
 })
 @Injectable()
@@ -28,27 +26,67 @@ export class FormState {
   constructor(protected readonly formService: FormService) {}
 
   @Selector()
-  static getOvenTypes(state: FormStateModel) {
+  static getOvenTypes(state: FormStateModel): OvenTypes[] {
     return state.ovenTypes;
   }
 
   @Selector()
-  static getSelectedOvenType(state: FormStateModel) {
+  static getSelectedOvenType(state: FormStateModel): string {
     return state.selectedOvenType;
+  }
+
+  @Selector()
+  static getRecipes(state: FormStateModel): RecipeListItem[] {
+    return state.recipes.filter(
+      recipe => recipe.oven === state.selectedOvenType
+    );
+  }
+
+  @Selector()
+  static getSelectedRecipe(state: FormStateModel): number {
+    return state.selectedRecipe;
   }
 
   @Action(GetOvenTypes)
   getOvenTypesAction(ctx: Ctx) {
     return this.formService
       .getOvenTypes()
-      .pipe(tap(ovenTypes => ctx.patchState({ ...ctx.getState(), ovenTypes })));
+      .pipe(tap(ovenTypes => ctx.patchState({ ovenTypes })));
   }
 
   @Action(SetOvenType)
-  setOvenType(ctx: Ctx, selectOven: SetOvenType) {
+  setOvenTypeAction(ctx: Ctx, selectOven: SetOvenType) {
+    const selectedOvenType = selectOven.payload.ovenType;
+
     ctx.patchState({
-      ...ctx.getState(),
-      selectedOvenType: selectOven.payload.ovenType,
+      selectedOvenType,
     });
+  }
+
+  @Action(GetRecipes)
+  getRecipesAction(ctx: Ctx) {
+    return this.formService.getRecipes().pipe(
+      tap(recipes =>
+        ctx.patchState({
+          recipes,
+          selectedRecipe: this.matchingRecipeId({ ...ctx.getState(), recipes }),
+        })
+      )
+    );
+  }
+
+  @Action(SetRecipe)
+  setRecipeAction(ctx: Ctx, recipe: SetRecipe) {
+    const selectedRecipe = recipe.payload.recipeId;
+    ctx.patchState({
+      selectedRecipe,
+    });
+  }
+
+  protected matchingRecipeId({
+    recipes,
+    selectedOvenType,
+  }: FormStateModel): number {
+    return recipes.filter(recipe => recipe.oven === selectedOvenType)[0].id;
   }
 }

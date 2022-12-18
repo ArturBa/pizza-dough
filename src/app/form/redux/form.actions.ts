@@ -4,14 +4,14 @@ export class GetOvenTypes {
 
 export class SetOvenType {
   static readonly type = '[Form] Set oven type';
-
   constructor(public payload: { ovenType: string }) {}
-}
-
-export class GetAllRecipes {
-  static readonly type = '[Form] Get all recipes';
 }
 
 export class GetRecipes {
   static readonly type = '[Form] Get recipes';
+}
+
+export class SetRecipe {
+  static readonly type = '[Form] Set recipe id';
+  constructor(public payload: { recipeId: number }) {}
 }

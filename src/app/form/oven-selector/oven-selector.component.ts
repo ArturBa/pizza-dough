@@ -1,9 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { GetOvenTypes, SetOvenType } from '../redux/form.actions';
-import { FormState, OvenTypes } from '../redux/form.store';
+import { FormState } from '../redux/form.store';
 import { Observable, Subject, filter, takeUntil } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { OvenTypes } from '../redux/form.model';
 
 @Component({
   selector: 'app-oven-selector',
@@ -11,9 +12,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./oven-selector.component.scss'],
 })
 export class OvenSelectorComponent implements OnDestroy {
-  protected destroy$ = new Subject<boolean>();
-  control = new FormControl('');
-
   @Select(FormState.getOvenTypes) ovenTypes$:
     | Observable<OvenTypes[]>
     | undefined;
@@ -22,10 +20,19 @@ export class OvenSelectorComponent implements OnDestroy {
     | Observable<string>
     | undefined;
 
+  control = new FormControl('');
+
+  protected readonly destroy$ = new Subject<boolean>();
+
   constructor(protected readonly store: Store) {
     store.dispatch(new GetOvenTypes());
     this.subscribeToControlChanged();
     this.subscribeToStoreChanged();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
   }
 
   protected subscribeToControlChanged = () => {
@@ -55,9 +62,4 @@ export class OvenSelectorComponent implements OnDestroy {
       )
       .subscribe(newValue => this.control.setValue(newValue));
   };
-
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.complete();
-  }
 }
