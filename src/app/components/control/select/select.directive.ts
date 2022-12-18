@@ -9,7 +9,7 @@ import { InputDirective } from '../input/input.directive';
 import { ChevronComponent } from '../../icon/chevron/chevron.component';
 
 @Directive({
-  selector: 'select[appSelector]',
+  selector: 'select[appSelect]',
   hostDirectives: [InputDirective],
   standalone: true,
 })

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormFieldComponent } from './form-field.component';
+import { ControlFieldComponent } from './control-field.component';
 
 export type ElementFromFixture<T = HTMLElement> = T | null | undefined;
 
@@ -9,20 +9,20 @@ export function getElementFromFixture<T = HTMLElement>(
   selector: string
 ): T | null | undefined {
   return fixture.nativeElement
-    .querySelector('app-form-field')
+    .querySelector('app-control-field')
     ?.shadowRoot?.querySelector(selector);
 }
 
-describe('FormFieldComponent', () => {
-  let component: FormFieldComponent;
-  let fixture: ComponentFixture<FormFieldComponent>;
+describe('ControlFieldComponent', () => {
+  let component: ControlFieldComponent;
+  let fixture: ComponentFixture<ControlFieldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormFieldComponent],
+      declarations: [ControlFieldComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormFieldComponent);
+    fixture = TestBed.createComponent(ControlFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

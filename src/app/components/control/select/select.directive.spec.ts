@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SelectorDirective } from './selector.directive';
-import { FormFieldComponent } from '../form-field/form-field.component';
+import { SelectorDirective } from './select.directive';
+import { ControlFieldComponent } from '../control-field/control-field.component';
 import {
   ElementFromFixture,
   getElementFromFixture,
-} from '../form-field/form-field.component.spec';
+} from '../control-field/control-field.component.spec';
 import { InputDirective } from '../input/input.directive';
 
 @Component({
   selector: 'app-test-selector',
   template: `
-    <app-form-field>
-      <select appSelector>
+    <app-control-field>
+      <select appSelect>
         <option *ngFor="let value of values" [value]="value">
           {{ value }}
         </option>
       </select>
-    </app-form-field>
+    </app-control-field>
   `,
 })
 class TestSelectorComponent {
@@ -29,7 +29,7 @@ describe('SelectorDirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestSelectorComponent, FormFieldComponent],
+      declarations: [TestSelectorComponent, ControlFieldComponent],
       imports: [InputDirective, SelectorDirective],
     }).compileComponents();
 

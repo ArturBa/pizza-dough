@@ -1,22 +1,22 @@
 import { Component, Input } from '@angular/core';
-import { SelectorDirective } from './selector.directive';
+import { SelectorDirective } from './select.directive';
 import { moduleMetadata, StoryObj, Meta } from '@storybook/angular';
-import { FormFieldComponent } from '../form-field/form-field.component';
+import { ControlFieldComponent } from '../control-field/control-field.component';
 import { IconModule } from '../../icon/icon.module';
 import { InputDirective } from '../input/input.directive';
 import { InputAfterDirective } from '../input-after/input-after.directive';
 
 @Component({
-  selector: 'app-story-selector',
+  selector: 'app-story-select',
   template: `
-    <app-form-field>
+    <app-control-field>
       <label *ngIf="label" [for]="inputId">{{ label }}</label>
-      <select [id]="inputId" appSelector placeholder="{{ placeholder }}">
+      <select [id]="inputId" appSelect placeholder="{{ placeholder }}">
         <option *ngFor="let value of values" [value]="value">
           {{ value }}
         </option>
       </select>
-    </app-form-field>
+    </app-control-field>
   `,
 })
 class StorySelectorComponent {
@@ -24,15 +24,15 @@ class StorySelectorComponent {
   @Input() inputAfter: string | undefined;
   @Input() placeholder: string | undefined;
   @Input() values: string[] = [];
-  inputId = 'story-selector';
+  inputId = 'story-select';
 }
 
 const meta: Meta<StorySelectorComponent> = {
-  title: 'Form/Selector',
+  title: 'Control/Select',
   component: StorySelectorComponent,
   decorators: [
     moduleMetadata({
-      declarations: [FormFieldComponent],
+      declarations: [ControlFieldComponent],
       imports: [
         InputDirective,
         InputAfterDirective,
