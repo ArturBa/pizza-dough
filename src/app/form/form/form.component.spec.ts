@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormComponent } from './form.component';
 import { FormModule } from '../form.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NgxsModule } from '@ngxs/store';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -9,7 +11,7 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormModule],
+      imports: [FormModule, HttpClientTestingModule, NgxsModule.forRoot([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormComponent);

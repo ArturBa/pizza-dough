@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { RecipeSelectorComponent } from './recipe-selector.component';
 import { ControlModule } from '../../components/control/control.module';
+import { NgxsModule } from '@ngxs/store';
+import { FormState } from '../redux/form.store';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('RecipeSelectorComponent', () => {
   let component: RecipeSelectorComponent;
@@ -10,7 +14,12 @@ describe('RecipeSelectorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [RecipeSelectorComponent],
-      imports: [ControlModule],
+      imports: [
+        ControlModule,
+        NgxsModule.forRoot([FormState]),
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RecipeSelectorComponent);
