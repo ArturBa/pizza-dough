@@ -1,0 +1,36 @@
+{
+  "title": "Chicago Deep Dish Pizza",
+  "oven": "S",
+  "ingredients": {
+    "flour": {
+      "bakers": "100",
+      "recommended": "All Purpose Flour"
+    },
+    "water": {
+      "bakers": "61",
+      "recommended": "Water"
+    },
+    "yeast": {
+      "bakers": "1.0000",
+      "recommended": "Active Dry Yeast"
+    },
+    "salt": {
+      "bakers": "1.40",
+      "recommended": "Salt"
+    },
+    "oil": {
+      "bakers": "9.99",
+      "recommended": "Vegetable Oil"
+    },
+    "sugar": {
+      "bakers": "2.00",
+      "recommended": "Refined Granulated Sugar"
+    },
+    "other": {
+      "bakers": "9.99",
+      "recommended": "Corn Meal"
+    }
+  },
+  "url": "http://www.pizzamaking.com/dkm_chicago.php",
+  "recipe": "<p>In a mixing bowl, add the water, sugar, yeast, flour, cornmeal, and salt.  Mix on low speed for a few minutes until the dough comes together, then slowly add the oil. Continue to mix dough for 7 more minutes.  The dough should be somewhat moist and smooth, not sticky.  Form the dough into a ball and place into a bowl. Cover loosely with plastic wrap and then with a dish towel and place in the refrigerator for an overnight rise.<br/> <br/> For complete instructions on how to make the DKM Deep Dish Pizza, please follow the link below.  </p> "
+}
