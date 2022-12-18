@@ -13,9 +13,14 @@ $gray-background: map-get(
   $map: color.$gray,
   $key: 850,
 );
+$white-background: map-get(
+  $map: color.$gray,
+  $key: 900,
+);
 
 $padding-inline: 14px;
 $padding-block: 12px;
+$transition-time: 250ms;
 
 @mixin internal-padding {
   padding-inline: $padding-inline;
@@ -29,11 +34,15 @@ $padding-block: 12px;
   max-width: 100%;
 }
 
+@mixin outline-transition {
+  transition: outline-color ease-in-out $transition-time;
+}
+
 $border-radius: 8px;
 
 .form-field-wrapper {
   margin-top: 1.5rem;
-  background-color: white;
+  background-color: $white-background;
 
   outline: 2px solid $regular-color;
   border-radius: $border-radius;
@@ -41,6 +50,8 @@ $border-radius: 8px;
   flex-direction: row;
   position: relative;
   color: $black-color;
+
+  @include outline-transition;
 
   &:focus-within,
   &:focus-within .app-input-after {
@@ -84,11 +95,6 @@ $border-radius: 8px;
       pointer-events: none;
       width: 1rem;
     }
-
-    option {
-      margin-top: 20px;
-      background-color: dodgerblue;
-    }
   }
 
   & > *:not(label, app-chevron) {
@@ -109,5 +115,6 @@ $border-radius: 8px;
     background-color: $gray-background;
     outline: solid $regular-color 2px;
     vertical-align: middle;
+    @include outline-transition;
   }
 }
