@@ -1,24 +1,26 @@
 import {
   ComponentRef,
   Directive,
+  HostBinding,
   OnInit,
   ViewContainerRef,
 } from '@angular/core';
 import { InputDirective } from '../input/input.directive';
-import { SelectorButtonComponent } from '../selector-button/selector-button.component';
+import { ChevronComponent } from '../../icon/chevron/chevron.component';
 
 @Directive({
-  selector: 'input[appSelector]',
+  selector: 'select[appSelector]',
   hostDirectives: [InputDirective],
 })
 export class SelectorDirective implements OnInit {
-  protected chevronButton: ComponentRef<SelectorButtonComponent> | undefined;
+  @HostBinding('class.app-select') class = true;
+
+  protected chevronButton: ComponentRef<ChevronComponent> | undefined;
 
   constructor(protected readonly viewContainerRef: ViewContainerRef) {}
 
   ngOnInit(): void {
-    this.chevronButton = this.viewContainerRef.createComponent(
-      SelectorButtonComponent
-    );
+    this.chevronButton =
+      this.viewContainerRef.createComponent(ChevronComponent);
   }
 }

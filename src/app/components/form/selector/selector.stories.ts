@@ -3,7 +3,6 @@ import { SelectorDirective } from './selector.directive';
 import { moduleMetadata, StoryObj, Meta } from '@storybook/angular';
 import { FormFieldComponent } from '../form-field/form-field.component';
 import { IconModule } from '../../icon/icon.module';
-import { SelectorButtonComponent } from '../selector-button/selector-button.component';
 import { InputDirective } from '../input/input.directive';
 import { InputAfterDirective } from '../input-after/input-after.directive';
 
@@ -12,16 +11,11 @@ import { InputAfterDirective } from '../input-after/input-after.directive';
   template: `
     <app-form-field>
       <label *ngIf="label" [for]="inputId">{{ label }}</label>
-      <input
-        [id]="inputId"
-        appSelector
-        placeholder="{{ placeholder }}"
-        list="story-list" />
-      <datalist id="story-list">
+      <select [id]="inputId" appSelector placeholder="{{ placeholder }}">
         <option *ngFor="let value of values" [value]="value">
           {{ value }}
         </option>
-      </datalist>
+      </select>
     </app-form-field>
   `,
 })
@@ -38,11 +32,7 @@ const meta: Meta<StorySelectorComponent> = {
   component: StorySelectorComponent,
   decorators: [
     moduleMetadata({
-      declarations: [
-        FormFieldComponent,
-        SelectorDirective,
-        SelectorButtonComponent,
-      ],
+      declarations: [FormFieldComponent, SelectorDirective],
       imports: [InputDirective, InputAfterDirective, IconModule],
     }),
   ],
@@ -58,9 +48,9 @@ export const Template: Story = {
   },
 };
 
-export const Placeholder: Story = {
+export const NoLabel: Story = {
   args: {
     ...Template.args,
-    placeholder: 'New York Pizza',
+    label: undefined,
   },
 };
