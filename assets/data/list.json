@@ -1,0 +1,127 @@
+[
+  {
+    "id": "10",
+    "title": "Chicago Deep Dish Pizza",
+    "oven": "S"
+  },
+  {
+    "id": "11",
+    "title": "Detroit Style Pizza Dough",
+    "oven": "S"
+  },
+  {
+    "id": "12",
+    "title": "TXCraig's Neapolitan Pizza Dough",
+    "oven": "W"
+  },
+  {
+    "id": "15",
+    "title": "Pizza Sophia",
+    "oven": "M"
+  },
+  {
+    "id": "16",
+    "title": "Pizza Factory Thin Crust Pizza (Garvey)",
+    "oven": "S"
+  },
+  {
+    "id": "17",
+    "title": "JerryMac's NY Style Pizza",
+    "oven": "S"
+  },
+  {
+    "id": "18",
+    "title": "Glutenboy's New York Pizza",
+    "oven": "S"
+  },
+  {
+    "id": "19",
+    "title": "Pete-zza's Papa John's Clone Pizza",
+    "oven": "S"
+  },
+  {
+    "id": "22",
+    "title": "Vera Pizza Napolitana Dough Recipe",
+    "oven": "W"
+  },
+  {
+    "id": "23",
+    "title": "Scott123 New York Pizza",
+    "oven": "S"
+  },
+  {
+    "id": "24",
+    "title": "Pepe's New Haven Style Pizza Recipe",
+    "oven": "S"
+  },
+  {
+    "id": "25",
+    "title": "Nancy Silverton's Pizza Dough (Mozza)",
+    "oven": "S"
+  },
+  {
+    "id": "26",
+    "title": "Jackie Tran Pizza Dough",
+    "oven": "S"
+  },
+  {
+    "id": "27",
+    "title": "Scott 123 Easy New York Pizza",
+    "oven": "S"
+  },
+  {
+    "id": "28",
+    "title": "Aimless Ryan's Tommy's Style Columbus Thin Crust",
+    "oven": "S"
+  },
+  {
+    "id": "29",
+    "title": "Pete-zza's Lehmann Dough (Detailed Instructions)",
+    "oven": "S"
+  },
+  {
+    "id": "30",
+    "title": "Lehman Dough Recipe For An Event",
+    "oven": "S"
+  },
+  {
+    "id": "31",
+    "title": "Andrew Bellucci New York Pizza Dough Recipe",
+    "oven": "S"
+  },
+  {
+    "id": "32",
+    "title": "Tony Gemigiani New York Pizza Dough",
+    "oven": "S"
+  },
+  {
+    "id": "33",
+    "title": "TXCraig's Mozza Inspired Pizza Dough",
+    "oven": "S"
+  },
+  {
+    "id": "34",
+    "title": "Essen1's NY Style Pizza Dough",
+    "oven": "S"
+  },
+  {
+    "id": "6",
+    "title": "Emergency Version of Lehmann NY Style",
+    "oven": "S"
+  },
+  {
+    "id": "7",
+    "title": "Pizza Shark's Authentic New York Style",
+    "oven": "S"
+  },
+  {
+    "id": "8",
+    "title": "Apizza Scholls Style Dough",
+    "oven": "S"
+  },
+  {
+    "id": "9",
+    "title": "DKM Thin Crust (Cracker Style)",
+    "oven": "S"
+  }
+]
