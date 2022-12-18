@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages via angular-cli-ghpages and update Storybooks
+name: Master branch CI/CD
 
 on:
   push:
@@ -11,11 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # 👈 Required to retrieve git history (chromatic)
-
       - uses: ./.github/actions/cache
-
       - name: Prepare and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -23,6 +19,14 @@ jobs:
           npm install
           npm run ng -- deploy --base-href=/pizza-dough/ --name="ArturBa" --email="pizzadoughgenerator@gmail.com" --no-silent
 
+  storybook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history (chromatic)
+      - uses: ./.github/actions/cache
       - uses: ./.github/actions/storybook
         with:
           CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
