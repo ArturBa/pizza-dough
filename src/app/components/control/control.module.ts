@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputDirective } from './input/input.directive';
-import { FormFieldComponent } from './form-field/form-field.component';
+import { ControlFieldComponent } from './control-field/control-field.component';
 import { InputAfterDirective } from './input-after/input-after.directive';
-import { SelectorDirective } from './selector/selector.directive';
+import { SelectorDirective } from './select/select.directive';
 import { IconModule } from '../icon/icon.module';
 
-const exports = [FormFieldComponent];
+const exports = [ControlFieldComponent];
 @NgModule({
   declarations: [...exports],
   imports: [
@@ -16,6 +16,11 @@ const exports = [FormFieldComponent];
     InputAfterDirective,
     SelectorDirective,
   ],
-  exports,
+  exports: [
+    ControlFieldComponent,
+    InputDirective,
+    InputAfterDirective,
+    SelectorDirective,
+  ],
 })
-export class FormModule {}
+export class ControlModule {}

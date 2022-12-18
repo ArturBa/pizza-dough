@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { InputDirective } from './input.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormFieldComponent } from '../form-field/form-field.component';
+import { ControlFieldComponent } from '../control-field/control-field.component';
 import {
   ElementFromFixture,
   getElementFromFixture,
-} from '../form-field/form-field.component.spec';
+} from '../control-field/control-field.component.spec';
 
 @Component({
   selector: 'app-test-input',
   template: `
-    <app-form-field>
+    <app-control-field>
       <input appInput />
-    </app-form-field>
+    </app-control-field>
   `,
 })
 class TestInputComponent {}
@@ -23,7 +23,7 @@ describe('InputDirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestInputComponent, FormFieldComponent],
+      declarations: [TestInputComponent, ControlFieldComponent],
       imports: [InputDirective],
     }).compileComponents();
 

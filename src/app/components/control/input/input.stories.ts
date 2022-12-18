@@ -1,17 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-import { FormFieldComponent } from '../form-field/form-field.component';
+import { ControlFieldComponent } from '../control-field/control-field.component';
 import { InputDirective } from './input.directive';
 import { InputAfterDirective } from '../input-after/input-after.directive';
 
 @Component({
   selector: 'app-story-input',
   template: `
-    <app-form-field>
+    <app-control-field>
       <label *ngIf="label" [for]="inputId">{{ label }}</label>
       <input [id]="inputId" appInput placeholder="{{ placeholder }}" />
       <span *ngIf="inputAfter" appInputAfter>{{ inputAfter }}</span>
-    </app-form-field>
+    </app-control-field>
   `,
 })
 class StoryInputComponent {
@@ -22,12 +22,12 @@ class StoryInputComponent {
 }
 
 const meta: Meta<StoryInputComponent> = {
-  title: 'Form/Input',
+  title: 'Control/Input',
   component: StoryInputComponent,
   decorators: [
     moduleMetadata({
       imports: [InputDirective, InputAfterDirective],
-      declarations: [FormFieldComponent],
+      declarations: [ControlFieldComponent],
     }),
   ],
 };
