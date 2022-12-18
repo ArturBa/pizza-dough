@@ -12,7 +12,7 @@ import { FormControl } from '@angular/forms';
 })
 export class OvenSelectorComponent implements OnDestroy {
   protected destroy$ = new Subject<boolean>();
-  control = new FormControl('S');
+  control = new FormControl('');
 
   @Select(FormState.getOvenTypes) ovenTypes$:
     | Observable<OvenTypes[]>
