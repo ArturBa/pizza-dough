@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './oven-selector.component.html',
   styleUrls: ['./oven-selector.component.scss'],
 })
-export class OvenSelectorComponent {}
+export class OvenSelectorComponent {
+  ovenTypes = ['Modified Grill', 'Standard Home Oven', 'Wood Fired Oven'];
+}
