@@ -1,0 +1,36 @@
+{
+  "title": "JerryMac's NY Style Pizza",
+  "oven": "S",
+  "ingredients": {
+    "flour": {
+      "bakers": "100",
+      "recommended": "King Arthur Bread Flour"
+    },
+    "water": {
+      "bakers": "68",
+      "recommended": "Water"
+    },
+    "yeast": {
+      "bakers": "1.0000",
+      "recommended": "Instant Dry Yeast"
+    },
+    "salt": {
+      "bakers": "2.00",
+      "recommended": "Kosher Salt"
+    },
+    "oil": {
+      "bakers": "0.00",
+      "recommended": "-No Oils Needed"
+    },
+    "sugar": {
+      "bakers": "0.00",
+      "recommended": "-No Sugar Needed"
+    },
+    "other": {
+      "bakers": "4.00",
+      "recommended": "Honey"
+    }
+  },
+  "url": "http://www.pizzamaking.com/forum/index.php/topic,5851.msg49940.html#msg49940",
+  "recipe": "<p>To prepare the poolish (preferment), combine all of the flour (sifted) with all of the yeast. Put all of the water into the mixer bowl of an electric mixer.  Using the whisk attachment at stir speed, gradually add an amount of flour equal in weight to the water in the bowl.  When all of the flour is incorporated into the water, remove the whisk attachment. Cover the mixer bowl and allow the poolish to preferment for 5 hours at a room temperature of about 67 degrees F. (Note: Technically, the poolish can be used a reasonable period of time after the poolish reaches the \"break point\". The break point is the point at which the poolish peaks and starts to recede, or collapse. All else being equal, the time that it takes to reach the break point will depend on the temperature, usually room temperature, at which the poolish preferments.)<br/> <br/> At the end of the 5-hour preferment period, add the honey, salt and the remaining flour (don't forget to subtract the flour you added to the poolish) in the mixer bowl. Using the mixer's dough attachment, mix the ingredients initially at low speed. Once all of the ingredients were fully combined, increase the speed one level and mix for 4 minutes. Remove the dough from the mixer bowl and place it on a lightly floured work surface. Hand knead for about a minute, then shape the dough into a round ball. Place the dough into a covered oiled container ( e.g., a plastic Rubbermaid or Cambro storage container) and allow to ferment for 1 ½ hours. At the end of that time, punch the down, reshape the ball, and allow it to proof for another 1 ½ hours (also in the covered Rubbermaid storage container). Divide the dough into dough balls and allow to rise for 1 to 1.5 hours. Your dough should then be ready for shaping.   </p> "
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Pizza Sophia",
+  "oven": "M",
+  "ingredients": {
+    "flour": {
+      "bakers": "100",
+      "recommended": "Caputo 00 Pizzeria"
+    },
+    "water": {
+      "bakers": "61",
+      "recommended": "Water"
+    },
+    "yeast": {
+      "bakers": "1.0000",
+      "recommended": "Natural Leaven "
+    },
+    "salt": {
+      "bakers": "2.70",
+      "recommended": "Sea Salt"
+    },
+    "oil": {
+      "bakers": "0.00",
+      "recommended": "-No Oils Needed"
+    },
+    "sugar": {
+      "bakers": "0.00",
+      "recommended": "-No Sugar Needed"
+    },
+    "other": {
+      "bakers": "0.00",
+      "recommended": "-No Others Needed"
+    }
+  },
+  "url": "http://www.pizzamaking.com/forum/index.php/topic,1324.0.html",
+  "recipe": "<p>Note: Target weight is 10 ounces for a 13\" skin.<br/> <br/> Preparation Steps<br/> 1 - Add salt &amp; water in kneader bowl. Stir until salt completely dissolved<br/> 2 - Add starter then add approximately half the sifted flour<br/> 3 - Turn on kneader incorporating the dry ingredients completely<br/> 4 – Then add remaining flour by evenly sprinkling flour very slowly<br/> 5 - Mix until dough no longer sticks to the side of the bowl<br/> 6 - Rest 15 minutes. Then turn kneader on for one full turn to achieve proper texture. This is 1st dough point<br/> 7 - Remove dough from bowl. Target dough temperature is 75 - 77F<br/> 8 - Punch &amp; fold on bench until very springy. The famed double dough point<br/> 9 - Shape into bulk ball &amp; place in covered bowl. Maintain a 64 – 68F temp for the 1st room temperature rise of 12 - 18 hours<br/> 10 - Divide into 10oz weights, shape into balls and cover. Maintain a 64 – 68F temp for 2nd rise of 4-6 hours<br/> </p> "
+}

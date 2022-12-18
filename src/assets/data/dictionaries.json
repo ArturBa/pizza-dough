@@ -1,0 +1,16 @@
+{
+  "OVEN": [
+    {
+      "code": "S",
+      "value": "Standard Home Oven"
+    },
+    {
+      "key": "M",
+      "value": "Modified Grill"
+    },
+    {
+      "key": "W",
+      "value": "Wood Fired Oven"
+    }
+  ]
+}
