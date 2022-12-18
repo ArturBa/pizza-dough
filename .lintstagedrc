@@ -1,7 +1,7 @@
 {
   "src/assets/data/recipes/*.json": [
     "./script/update-recipe-list.sh",
-    "npx prettier --write add src/assets/data",
+    "npx prettier --write src/assets/data",
     "git add src/assets/data"
   ],
   "*.{json,md,yml,yaml}": "npx prettier --write",
