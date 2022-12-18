@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HeaderLogoComponent } from './header-logo/header-logo.component';
-import { ControlModule } from './form/control.module';
+import { ControlModule } from './control/control.module';
 
 const exports = [FooterComponent, HeaderComponent];
 
