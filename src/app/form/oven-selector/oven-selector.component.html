@@ -1,6 +1,8 @@
 <app-control-field>
   <label for="oven-selector">Type of oven</label>
-  <select appSelect id="oven-selector">
-    <option *ngFor="let value of ovenTypes" [value]="value">{{ value }}</option>
+  <select appSelect id="oven-selector" [formControl]="control">
+    <option *ngFor="let ovenType of ovenTypes$ | async" [value]="ovenType.key">
+      {{ ovenType.value }}
+    </option>
   </select>
 </app-control-field>
