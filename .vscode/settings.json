@@ -19,5 +19,5 @@
     "titleBar.inactiveForeground": "#15202b99"
   },
   "peacock.color": "#d9c6b5",
-  "conventionalCommits.scopes": ["component"]
+  "conventionalCommits.scopes": ["component", "form"]
 }

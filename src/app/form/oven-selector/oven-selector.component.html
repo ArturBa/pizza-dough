@@ -1,1 +1,6 @@
-<p>oven-selector works!</p>
+<app-control-field>
+  <label for="oven-selector">Type of oven</label>
+  <select appSelect id="oven-selector">
+    <option *ngFor="let value of ovenTypes" [value]="value">{{ value }}</option>
+  </select>
+</app-control-field>

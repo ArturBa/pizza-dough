@@ -15,10 +15,10 @@ body {
 }
 
 hr {
-  margin-top: 0.75rem;
+  margin-block: 0.75rem;
   border: 1px solid map-get(color.$gray, 800);
 
   @include media-queries.web {
-    margin-top: 1.25rem;
+    margin-block: 1.5rem;
   }
 }
