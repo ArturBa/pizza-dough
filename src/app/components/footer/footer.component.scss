@@ -1,8 +1,9 @@
 @use 'media-queries';
+@use 'color';
 
 footer {
   font-weight: 600;
-  background: hsl(37 48% 95%);
+  background: map-get($map: color.$accent, $key: 700);
 
   display: flex;
   align-items: center;
@@ -11,7 +12,7 @@ footer {
   height: 4rem;
   width: 100%;
 
-  border-color: hsl(0 0 0.81);
+  border-color: map-get($map: color.$gray, $key: 800);
   border-top: solid 1px;
 
   @include media-queries.web {

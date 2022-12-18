@@ -44,7 +44,6 @@ export class OvenSelectorComponent implements OnDestroy {
           return;
         }
         this.store.dispatch(new SetOvenType({ ovenType: value }));
-        console.log(value);
       });
   };
 

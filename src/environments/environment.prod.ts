@@ -1,8 +1,4 @@
-import env from './environment';
-import { Environment } from './environment';
-
-const prod: Environment = {
-  ...env,
+const prod = {
   production: false,
 };
 export default prod;

@@ -1,6 +1,7 @@
-export interface Environment {
+export type Environment = {
   production: boolean;
-}
+};
+
 const env: Environment = {
   production: false,
 };

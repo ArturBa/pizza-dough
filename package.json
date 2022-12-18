@@ -11,7 +11,8 @@
     "prepare": "husky install",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && ng run pizza-dough:storybook -p 6006",
-    "build-storybook": "npm run docs:json && ng run pizza-dough:build-storybook"
+    "build-storybook": "npm run docs:json && ng run pizza-dough:build-storybook",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
