@@ -11,6 +11,7 @@ import { ChevronComponent } from '../../icon/chevron/chevron.component';
 @Directive({
   selector: 'select[appSelector]',
   hostDirectives: [InputDirective],
+  standalone: true,
 })
 export class SelectorDirective implements OnInit {
   @HostBinding('class.app-select') class = true;

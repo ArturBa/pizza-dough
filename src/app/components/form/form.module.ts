@@ -6,10 +6,16 @@ import { InputAfterDirective } from './input-after/input-after.directive';
 import { SelectorDirective } from './selector/selector.directive';
 import { IconModule } from '../icon/icon.module';
 
-const exports = [FormFieldComponent, SelectorDirective];
+const exports = [FormFieldComponent];
 @NgModule({
   declarations: [...exports],
-  imports: [CommonModule, IconModule, InputDirective, InputAfterDirective],
+  imports: [
+    CommonModule,
+    IconModule,
+    InputDirective,
+    InputAfterDirective,
+    SelectorDirective,
+  ],
   exports,
 })
 export class FormModule {}

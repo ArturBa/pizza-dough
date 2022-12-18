@@ -32,8 +32,13 @@ const meta: Meta<StorySelectorComponent> = {
   component: StorySelectorComponent,
   decorators: [
     moduleMetadata({
-      declarations: [FormFieldComponent, SelectorDirective],
-      imports: [InputDirective, InputAfterDirective, IconModule],
+      declarations: [FormFieldComponent],
+      imports: [
+        InputDirective,
+        InputAfterDirective,
+        SelectorDirective,
+        IconModule,
+      ],
     }),
   ],
 };

@@ -6,6 +6,7 @@ import {
   ElementFromFixture,
   getElementFromFixture,
 } from '../form-field/form-field.component.spec';
+import { InputDirective } from '../input/input.directive';
 
 @Component({
   selector: 'app-test-selector',
@@ -28,11 +29,8 @@ describe('SelectorDirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        TestSelectorComponent,
-        SelectorDirective,
-        FormFieldComponent,
-      ],
+      declarations: [TestSelectorComponent, FormFieldComponent],
+      imports: [InputDirective, SelectorDirective],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestSelectorComponent);
@@ -48,7 +46,6 @@ describe('SelectorDirective', () => {
     let compiled: ElementFromFixture<HTMLSelectElement>;
 
     beforeEach(async () => {
-      fixture.detectChanges();
       compiled = getElementFromFixture(fixture, 'select');
     });
 
