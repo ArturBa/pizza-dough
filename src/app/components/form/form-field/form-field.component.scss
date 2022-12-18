@@ -13,12 +13,36 @@ $gray-background: map-get(
   $map: color.$gray,
   $key: 850,
 );
+$white-background: map-get(
+  $map: color.$gray,
+  $key: 900,
+);
+
+$padding-inline: 14px;
+$padding-block: 12px;
+$transition-time: 250ms;
+
+@mixin internal-padding {
+  padding-inline: $padding-inline;
+  padding-block: $padding-block;
+}
+
+@mixin form-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+@mixin outline-transition {
+  transition: outline-color ease-in-out $transition-time;
+}
 
 $border-radius: 8px;
 
 .form-field-wrapper {
   margin-top: 1.5rem;
-  background-color: white;
+  background-color: $white-background;
 
   outline: 2px solid $regular-color;
   border-radius: $border-radius;
@@ -27,8 +51,10 @@ $border-radius: 8px;
   position: relative;
   color: $black-color;
 
+  @include outline-transition;
+
   &:focus-within,
-  &:focus-within .app-input-after-class {
+  &:focus-within .app-input-after {
     outline-color: $focus-color;
   }
 
@@ -38,31 +64,57 @@ $border-radius: 8px;
     font-size: 0.875rem;
     line-height: 182%;
     color: $regular-color;
+    @include form-ellipsis;
   }
 
-  input {
+  .app-input {
     flex: 1 1 0;
     outline: none;
     border: none;
-    padding-bottom: 12px;
-
     background-color: transparent;
   }
 
-  & > *:not(label) {
-    padding-inline: 14px;
-    padding-top: 12px;
-
-    font-size: 1rem;
+  input {
+    padding: 0;
   }
 
-  .app-input-after-class {
-    background-color: $gray-background;
-    outline: solid $regular-color 2px;
+  select.app-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    & + app-chevron {
+      position: absolute;
+      top: calc($padding-block + 0.5em - 0.5 * 0.5625rem);
+      right: $padding-inline;
+      pointer-events: none;
+      width: 1rem;
+    }
+  }
+
+  & > *:not(label, app-chevron) {
+    @include internal-padding;
+  }
+
+  & > * {
+    font-size: 0.875rem;
+    line-height: 1rem;
+  }
+
+  .app-input-after {
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
-  span.app-input-after-class {
+
+  span.app-input-after {
+    background-color: $gray-background;
+    outline: solid $regular-color 2px;
     vertical-align: middle;
+    @include outline-transition;
   }
 }
