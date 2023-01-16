@@ -8,9 +8,19 @@ import { NgxsModule } from '@ngxs/store';
 import { FormState } from './redux/form.store';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WeightUnitSelectorComponent } from './weight-unit-selector/weight-unit-selector.component';
+import { DoughtCounterSelectorComponent } from './dought-counter-selector/dought-counter-selector.component';
+import { DoughtWeightSelectorComponent } from './dought-weight-selector/dought-weight-selector.component';
 
 @NgModule({
-  declarations: [RecipeSelectorComponent, OvenSelectorComponent, FormComponent],
+  declarations: [
+    RecipeSelectorComponent,
+    OvenSelectorComponent,
+    FormComponent,
+    WeightUnitSelectorComponent,
+    DoughtCounterSelectorComponent,
+    DoughtWeightSelectorComponent,
+  ],
   imports: [
     CommonModule,
     ControlModule,
