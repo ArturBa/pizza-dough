@@ -35,13 +35,6 @@ export class RecipeSelectorComponent implements OnDestroy {
     this.destroy$.complete();
   }
 
-  // protected subscribeToControl() {
-  //   this.control.valueChanges
-  //     .pipe(takeUntil(this.destroy$))
-  //     .subscribe(newValue => {
-  //       this.store.dispatch(new SetRecipe({ recipeId: newValue }));
-  //     });
-  // }
   protected subscribeToControlChanged = () => {
     this.control.valueChanges
       .pipe(
