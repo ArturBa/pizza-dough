@@ -1,0 +1,8 @@
+<app-control-field>
+  <label for="oven-selector">Type of oven</label>
+  <select appSelect id="oven-selector" [formControl]="control">
+    <option *ngFor="let weightType of weightMap" [value]="weightType.key">
+      {{ weightType.label }}
+    </option>
+  </select>
+</app-control-field>

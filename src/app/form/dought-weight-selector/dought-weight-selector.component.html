@@ -1,0 +1,11 @@
+<app-control-field>
+  <label for="dough-weight">Dought ball weight</label>
+  <input
+    type="number"
+    appInput
+    id="dough-weight"
+    [formControl]="control"
+    min="10"
+    step="10" />
+  <span appInputAfter>g</span>
+</app-control-field>
