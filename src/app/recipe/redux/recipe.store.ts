@@ -31,19 +31,13 @@ export class RecipeState {
       ctx.patchState({ selected: newSelected });
       return;
     }
-    const cachedRecipes = ctx.getState().recipes;
 
-    this.recipeService.getRecipe(recipeId).pipe(
+    return this.recipeService.getRecipe(recipeId).pipe(
       tap(recipe => {
-        console.log(
-          '🚀 ~ file: recipe.store.ts:39 ~ RecipeState ~ this.recipeService.getRecipe ~ recipe',
-          recipe
-        );
+        const cachedRecipes = ctx.getState().recipes;
         recipe = { ...recipe, id: recipeId };
         cachedRecipes.set(recipeId, recipe);
         ctx.setState({ selected: recipe, recipes: cachedRecipes });
-        const state = ctx.getState();
-        console.log(`state ${JSON.stringify(state)}`);
       })
     );
   }
