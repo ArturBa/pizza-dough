@@ -11,7 +11,8 @@
     "prepare": "husky install",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && ng run pizza-dough:storybook -p 6006",
-    "build-storybook": "npm run docs:json && ng run pizza-dough:build-storybook"
+    "build-storybook": "npm run docs:json && ng run pizza-dough:build-storybook",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,8 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@ngxs/devtools-plugin": "^3.7.6",
+    "@ngxs/store": "^3.7.6",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

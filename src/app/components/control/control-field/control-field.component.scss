@@ -21,6 +21,7 @@ $white-background: map-get(
 $padding-inline: 14px;
 $padding-block: 12px;
 $transition-time: 250ms;
+$outline-size: 1px;
 
 @mixin internal-padding {
   padding-inline: $padding-inline;
@@ -44,7 +45,7 @@ $border-radius: 8px;
   margin-top: 1.5rem;
   background-color: $white-background;
 
-  outline: 2px solid $regular-color;
+  outline: $outline-size solid $regular-color;
   border-radius: $border-radius;
   display: flex;
   flex-direction: row;
@@ -115,7 +116,7 @@ $border-radius: 8px;
 
   span.app-input-after {
     background-color: $gray-background;
-    outline: solid $regular-color 2px;
+    outline: solid $regular-color $outline-size;
     vertical-align: middle;
     @include outline-transition;
   }
