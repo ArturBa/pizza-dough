@@ -12,11 +12,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./recipe-selector.component.scss'],
 })
 export class RecipeSelectorComponent implements OnDestroy {
-  @Select(FormState.getRecipes) recipes$:
+  @Select(FormState.getRecipes) protected readonly recipes$:
     | Observable<RecipeListItem[]>
     | undefined;
 
-  @Select(FormState.getSelectedRecipe) selectedRecipe$:
+  @Select(FormState.getSelectedRecipe) protected readonly selectedRecipe$:
     | Observable<number>
     | undefined;
 

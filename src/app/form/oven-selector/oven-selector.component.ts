@@ -12,11 +12,11 @@ import { OvenTypes } from '../redux/form.model';
   styleUrls: ['./oven-selector.component.scss'],
 })
 export class OvenSelectorComponent implements OnDestroy {
-  @Select(FormState.getOvenTypes) ovenTypes$:
+  @Select(FormState.getOvenTypes) protected readonly ovenTypes$:
     | Observable<OvenTypes[]>
     | undefined;
 
-  @Select(FormState.getSelectedOvenType) selectedOvenType$:
+  @Select(FormState.getSelectedOvenType) protected readonly selectedOvenType$:
     | Observable<string>
     | undefined;
 
