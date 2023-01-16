@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dought-counter-selector',
@@ -7,5 +7,9 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./dought-counter-selector.component.scss'],
 })
 export class DoughtCounterSelectorComponent {
-  readonly control = new FormControl('');
+  readonly control = new FormControl<number>(2, [
+    Validators.min(1),
+    Validators.pattern(/\d+/),
+    Validators.required,
+  ]);
 }

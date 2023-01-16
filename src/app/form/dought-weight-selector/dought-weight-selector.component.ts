@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dought-weight-selector',
@@ -7,5 +7,9 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./dought-weight-selector.component.scss'],
 })
 export class DoughtWeightSelectorComponent {
-  readonly control = new FormControl('');
+  readonly control = new FormControl<number>(250, [
+    Validators.min(10),
+    Validators.pattern(/\d+/),
+    Validators.required,
+  ]);
 }
