@@ -38,6 +38,10 @@ export class PathFormService implements OnDestroy {
       .subscribe();
   }
 
+  setRecipeUrl(recipeId: number) {
+    this.router.navigate(['recipe', recipeId]);
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
