@@ -9,21 +9,27 @@ import {
 } from './form.actions';
 import { tap } from 'rxjs';
 import { FormStateModel, OvenTypes, RecipeListItem } from './form.model';
+import { PathFormService } from '../service/path.service';
 
 type Ctx = StateContext<FormStateModel>;
+
+const defaultOvenType = 'S';
 
 @State<FormStateModel>({
   name: 'formInfo',
   defaults: {
     ovenTypes: [],
-    selectedOvenType: 'S',
+    selectedOvenType: defaultOvenType,
     recipes: [],
     selectedRecipe: 0,
   },
 })
 @Injectable()
 export class FormState {
-  constructor(protected readonly formService: FormService) {}
+  constructor(
+    protected readonly formService: FormService,
+    protected readonly path: PathFormService
+  ) {}
 
   @Selector()
   static getOvenTypes(state: FormStateModel): OvenTypes[] {
@@ -49,9 +55,14 @@ export class FormState {
 
   @Action(GetOvenTypes)
   getOvenTypesAction(ctx: Ctx) {
-    return this.formService
-      .getOvenTypes()
-      .pipe(tap(ovenTypes => ctx.patchState({ ovenTypes })));
+    return this.formService.getOvenTypes().pipe(
+      tap(ovenTypes =>
+        ctx.patchState({
+          ovenTypes,
+          selectedOvenType: this.matchingOven(ctx.getState()),
+        })
+      )
+    );
   }
 
   @Action(SetOvenType)
@@ -70,6 +81,7 @@ export class FormState {
         ctx.patchState({
           recipes,
           selectedRecipe: this.matchingRecipeId({ ...ctx.getState(), recipes }),
+          selectedOvenType: this.matchingOven({ ...ctx.getState(), recipes }),
         })
       )
     );
@@ -80,13 +92,31 @@ export class FormState {
     const selectedRecipe = recipe.payload.recipeId;
     ctx.patchState({
       selectedRecipe,
+      selectedOvenType: this.matchingOven({
+        ...ctx.getState(),
+        selectedRecipe,
+      }),
     });
   }
 
   protected matchingRecipeId({
     recipes,
     selectedOvenType,
+    selectedRecipe,
   }: FormStateModel): number {
-    return recipes.filter(recipe => recipe.oven === selectedOvenType)[0].id;
+    return (
+      selectedRecipe ??
+      recipes.filter(recipe => recipe.oven === selectedOvenType)[0].id
+    );
+  }
+
+  protected matchingOven({
+    recipes,
+    selectedRecipe,
+  }: FormStateModel): OvenTypes['key'] {
+    if (recipes.length == 0) {
+      return defaultOvenType;
+    }
+    return recipes.filter(recipe => recipe.id == selectedRecipe)[0].oven;
   }
 }
