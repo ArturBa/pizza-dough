@@ -1,10 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { GetRecipes, SetRecipe } from '../redux/form.actions';
+import { GetRecipes } from '../redux/form.actions';
 import { Observable, Subject, filter, takeUntil } from 'rxjs';
 import { FormState } from '../redux/form.store';
 import { RecipeListItem } from '../redux/form.model';
 import { FormControl } from '@angular/forms';
+import { PathFormService } from '../service/path.service';
 
 @Component({
   selector: 'app-recipe-selector',
@@ -12,11 +13,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./recipe-selector.component.scss'],
 })
 export class RecipeSelectorComponent implements OnDestroy {
-  @Select(FormState.getRecipes) recipes$:
+  @Select(FormState.getRecipes) protected readonly recipes$:
     | Observable<RecipeListItem[]>
     | undefined;
 
-  @Select(FormState.getSelectedRecipe) selectedRecipe$:
+  @Select(FormState.getSelectedRecipe) protected readonly selectedRecipe$:
     | Observable<number>
     | undefined;
 
@@ -24,7 +25,10 @@ export class RecipeSelectorComponent implements OnDestroy {
 
   protected readonly destroy$ = new Subject<boolean>();
 
-  constructor(protected readonly store: Store) {
+  constructor(
+    protected readonly store: Store,
+    protected readonly pathForm: PathFormService
+  ) {
     store.dispatch(new GetRecipes());
     this.subscribeToControlChanged();
     this.subscribeToStoreChanged();
@@ -46,7 +50,7 @@ export class RecipeSelectorComponent implements OnDestroy {
         filter(value => value !== null)
       )
       .subscribe(value => {
-        this.store.dispatch(new SetRecipe({ recipeId: value }));
+        this.pathForm.setRecipeUrl(value);
       });
   };
 
