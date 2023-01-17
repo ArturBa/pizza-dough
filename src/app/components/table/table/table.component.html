@@ -1,0 +1,9 @@
+<table>
+  <thead>
+    <app-header [unit]="unit"></app-header>
+  </thead>
+  <tbody>
+    <app-row *ngFor="let rowData of data" [rowData]="rowData"></app-row>
+    <app-total-weight-row [totalWeight]="totalWeight"></app-total-weight-row>
+  </tbody>
+</table>
