@@ -22,6 +22,11 @@ export class DoughState {
   }
 
   @Selector()
+  static doughCount$(state: DoughStateModel): number {
+    return state.count;
+  }
+
+  @Selector()
   static weightUnit$(state: DoughStateModel): WeightUnitTypes {
     return state.unit;
   }
