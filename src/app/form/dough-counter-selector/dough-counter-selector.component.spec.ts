@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DoughtCounterSelectorComponent } from './dought-counter-selector.component';
+import { doughCounterSelectorComponent } from './dough-counter-selector.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ControlModule } from '../../components/control/control.module';
 
-describe('DoughtCounterSelectorComponent', () => {
-  let component: DoughtCounterSelectorComponent;
-  let fixture: ComponentFixture<DoughtCounterSelectorComponent>;
+describe('doughCounterSelectorComponent', () => {
+  let component: doughCounterSelectorComponent;
+  let fixture: ComponentFixture<doughCounterSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DoughtCounterSelectorComponent],
+      declarations: [doughCounterSelectorComponent],
       imports: [ControlModule, ReactiveFormsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DoughtCounterSelectorComponent);
+    fixture = TestBed.createComponent(doughCounterSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,12 +5,13 @@ import { OvenSelectorComponent } from './oven-selector/oven-selector.component';
 import { ControlModule } from '../components/control/control.module';
 import { FormComponent } from './form/form.component';
 import { NgxsModule } from '@ngxs/store';
-import { FormState } from './redux/form.store';
+import { FormState } from './redux/form.state';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WeightUnitSelectorComponent } from './weight-unit-selector/weight-unit-selector.component';
-import { DoughtCounterSelectorComponent } from './dought-counter-selector/dought-counter-selector.component';
-import { DoughtWeightSelectorComponent } from './dought-weight-selector/dought-weight-selector.component';
+import { DoughCounterSelectorComponent } from './dough-counter-selector/dough-counter-selector.component';
+import { DoughWeightSelectorComponent } from './dough-weight-selector/dough-weight-selector.component';
+import { DoughModule } from '../dough/dough.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,8 @@ import { DoughtWeightSelectorComponent } from './dought-weight-selector/dought-w
     OvenSelectorComponent,
     FormComponent,
     WeightUnitSelectorComponent,
-    DoughtCounterSelectorComponent,
-    DoughtWeightSelectorComponent,
+    DoughCounterSelectorComponent,
+    DoughWeightSelectorComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { DoughtWeightSelectorComponent } from './dought-weight-selector/dought-w
     NgxsModule.forFeature([FormState]),
     HttpClientModule,
     ReactiveFormsModule,
+    DoughModule,
   ],
   exports: [FormComponent],
 })

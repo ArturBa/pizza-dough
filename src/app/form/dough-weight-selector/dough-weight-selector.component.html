@@ -1,5 +1,5 @@
 <app-control-field>
-  <label for="dough-weight">Dought ball weight</label>
+  <label for="dough-weight">Dough ball weight</label>
   <input
     type="number"
     appInput
@@ -7,5 +7,5 @@
     [formControl]="control"
     min="10"
     step="10" />
-  <span appInputAfter>g</span>
+  <span appInputAfter [innerText]="weightUnit$ | async"></span>
 </app-control-field>
