@@ -1,0 +1,12 @@
+<app-control-field>
+  <label for="dough-weight">Dough ball weight</label>
+  <input
+    *ngIf="(weightUnitData$ | async)?.weight as weight"
+    type="number"
+    appInput
+    id="dough-weight"
+    [formControl]="control"
+    [min]="weight?.min ?? 10"
+    [step]="weight?.step ?? 10" />
+  <span appInputAfter>{{ weightUnit$ | async }}</span>
+</app-control-field>

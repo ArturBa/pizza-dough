@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WeightUnitSelectorComponent } from './weight-unit-selector.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { DoughWeightSelectorComponent } from './dough-weight-selector.component';
 import { ControlModule } from '../../components/control/control.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { DoughState } from '../../dough/redux';
 
-describe('WeightUnitSelectorComponent', () => {
-  let component: WeightUnitSelectorComponent;
-  let fixture: ComponentFixture<WeightUnitSelectorComponent>;
+describe('DoughWeightSelectorComponent', () => {
+  let component: DoughWeightSelectorComponent;
+  let fixture: ComponentFixture<DoughWeightSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WeightUnitSelectorComponent],
+      declarations: [DoughWeightSelectorComponent],
       imports: [
         ControlModule,
         ReactiveFormsModule,
@@ -20,7 +20,7 @@ describe('WeightUnitSelectorComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WeightUnitSelectorComponent);
+    fixture = TestBed.createComponent(DoughWeightSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

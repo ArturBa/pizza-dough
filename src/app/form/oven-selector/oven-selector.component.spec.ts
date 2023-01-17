@@ -3,7 +3,7 @@ import { OvenSelectorComponent } from './oven-selector.component';
 import { ControlModule } from '../../components/control/control.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NgxsModule } from '@ngxs/store';
-import { FormState } from '../redux/form.store';
+import { FormState } from '../redux/form.state';
 import { ReactiveFormsModule } from '@angular/forms';
 
 describe('OvenSelectorComponent', () => {

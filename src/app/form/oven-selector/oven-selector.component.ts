@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { GetOvenTypes, SetOvenType } from '../redux/form.actions';
-import { FormState } from '../redux/form.store';
+import { FormState } from '../redux/form.state';
 import { Observable, Subject, filter, takeUntil } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { OvenTypes } from '../redux/form.model';

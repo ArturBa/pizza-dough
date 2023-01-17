@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { GetRecipes } from '../redux/form.actions';
 import { Observable, Subject, filter, takeUntil } from 'rxjs';
-import { FormState } from '../redux/form.store';
+import { FormState } from '../redux/form.state';
 import { RecipeListItem } from '../redux/form.model';
 import { FormControl } from '@angular/forms';
 import { PathFormService } from '../service/path.service';

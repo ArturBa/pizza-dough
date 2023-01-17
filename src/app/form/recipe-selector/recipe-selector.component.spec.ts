@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RecipeSelectorComponent } from './recipe-selector.component';
 import { ControlModule } from '../../components/control/control.module';
 import { NgxsModule } from '@ngxs/store';
-import { FormState } from '../redux/form.store';
+import { FormState } from '../redux/form.state';
 import { ReactiveFormsModule } from '@angular/forms';
 
 describe('RecipeSelectorComponent', () => {
