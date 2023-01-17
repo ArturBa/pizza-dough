@@ -12,7 +12,7 @@ import { DoughState, SetDoughWeight, WeightUnitTypes } from '../../dough/redux';
 export class DoughWeightSelectorComponent implements OnDestroy {
   protected readonly destroy$ = new Subject<void>();
 
-  @Select(DoughState.weightUnit$) weightUnit$:
+  @Select(DoughState.weightUnit$) readonly weightUnit$:
     | Observable<WeightUnitTypes>
     | undefined;
 
@@ -24,7 +24,6 @@ export class DoughWeightSelectorComponent implements OnDestroy {
 
   constructor(protected readonly store: Store) {
     this.subscribeToControlChanged();
-    this.weightUnit$?.subscribe(console.log);
   }
 
   protected subscribeToControlChanged = () => {

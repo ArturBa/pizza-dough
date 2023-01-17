@@ -7,5 +7,5 @@
     [formControl]="control"
     min="10"
     step="10" />
-  <span appInputAfter [innerText]="weightUnit$ | async"></span>
+  <span appInputAfter>{{ weightUnit$ | async }}</span>
 </app-control-field>

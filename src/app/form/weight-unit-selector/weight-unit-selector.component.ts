@@ -34,10 +34,6 @@ export class WeightUnitSelectorComponent implements OnDestroy {
       )
       .subscribe(_value => {
         const value = _value as WeightUnitTypes;
-        console.log(
-          '🚀 ~ file: weight-unit-selector.component.ts:36 ~ WeightUnitSelectorComponent ~ value',
-          value
-        );
         this.store.dispatch(new SetWeightUnit({ unit: value! }));
       });
   };

@@ -1,4 +1,4 @@
-import { Action, State, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { DoughStateModel, WeightUnitTypes } from './dough.model';
 import { Injectable } from '@angular/core';
 import { SetDoughCount, SetDoughWeight, SetWeightUnit } from './dough.actions';
@@ -15,12 +15,13 @@ type Ctx = StateContext<DoughStateModel>;
 })
 @Injectable()
 export class DoughState {
+  @Selector()
   static doughWeight$(state: DoughStateModel): number {
     return state.weight;
   }
 
+  @Selector()
   static weightUnit$(state: DoughStateModel): WeightUnitTypes | undefined {
-    console.log('Hello ', state.unit);
     return state.unit;
   }
 
