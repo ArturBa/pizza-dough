@@ -1,4 +1,4 @@
 const prod = {
-  production: false,
+  production: true,
 };
 export default prod;
