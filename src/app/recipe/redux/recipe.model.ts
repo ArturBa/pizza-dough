@@ -5,7 +5,7 @@ interface RecipeIngredient {
   recommended: string;
 }
 
-interface RecipeIngredients {
+export interface RecipeIngredients {
   flour: RecipeIngredient;
   water: RecipeIngredient;
   yeast: RecipeIngredient;
