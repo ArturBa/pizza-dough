@@ -1,0 +1,46 @@
+@use 'color';
+
+$accent-color: map-get(
+  $map: color.$accent,
+  $key: 700,
+);
+
+$header-gray-color: map-get(
+  $map: color.$gray,
+  $key: 400,
+);
+
+:host {
+  width: 100%;
+  display: block;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    th {
+      color: $header-gray-color;
+      font-weight: 500;
+      width: 30%;
+
+      &:last {
+        width: 40%;
+      }
+    }
+
+    th,
+    td {
+      padding-inline: 0.75rem;
+      padding-block: 0.5rem;
+    }
+
+    tr {
+      background-color: inherit;
+    }
+
+    :where(app-row, app-total-weight-row):nth-child(odd) {
+      background-color: $accent-color;
+    }
+  }
+}
