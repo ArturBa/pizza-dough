@@ -1,8 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
-import { Observable, Subject, filter, takeUntil } from 'rxjs';
-import { DoughState, SetDoughWeight, WeightUnitTypes } from '../../dough/redux';
+import { Observable, Subject, filter, map, takeUntil } from 'rxjs';
+import {
+  DoughState,
+  SetDoughWeight,
+  WeightUnit,
+  WeightUnitTypes,
+  weightUnits,
+} from '../../dough/redux';
 
 @Component({
   selector: 'app-dough-weight-selector',
@@ -12,9 +18,20 @@ import { DoughState, SetDoughWeight, WeightUnitTypes } from '../../dough/redux';
 export class DoughWeightSelectorComponent implements OnDestroy {
   protected readonly destroy$ = new Subject<void>();
 
-  @Select(DoughState.weightUnit$) readonly weightUnit$:
-    | Observable<WeightUnitTypes>
+  @Select(DoughState.weightUnit$)
+  readonly weightUnit$!: Observable<WeightUnitTypes>;
+
+  @Select(DoughState.doughWeight$) protected readonly doughWeight$:
+    | Observable<number>
     | undefined;
+
+  readonly weightUnitData$: Observable<WeightUnit> = this.weightUnit$?.pipe(
+    takeUntil(this.destroy$),
+    map(unit => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      return weightUnits.get(unit)!;
+    })
+  );
 
   readonly control = new FormControl<number>(250, [
     Validators.min(10),
@@ -24,6 +41,7 @@ export class DoughWeightSelectorComponent implements OnDestroy {
 
   constructor(protected readonly store: Store) {
     this.subscribeToControlChanged();
+    this.subscribeToValueChanged();
   }
 
   protected subscribeToControlChanged = () => {
@@ -35,6 +53,12 @@ export class DoughWeightSelectorComponent implements OnDestroy {
       .subscribe(value => {
         this.store.dispatch(new SetDoughWeight({ weight: value! }));
       });
+  };
+
+  protected subscribeToValueChanged = () => {
+    this.doughWeight$?.pipe(takeUntil(this.destroy$)).subscribe(value => {
+      this.control.setValue(value);
+    });
   };
 
   ngOnDestroy(): void {
