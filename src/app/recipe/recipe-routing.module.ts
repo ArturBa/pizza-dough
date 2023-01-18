@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipeComponent } from './recipe/recipe.component';
+import { defaultFormStateModel } from '../form/redux/form.model';
 
-const defaultRecipeId = 18;
+const defaultRecipeId = defaultFormStateModel.selectedRecipe;
 
 const routes: Routes = [
   {
