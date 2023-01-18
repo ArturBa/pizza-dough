@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
-import { Subject, switchMap, takeUntil } from 'rxjs';
+import { Subject, catchError, from, switchMap, takeUntil } from 'rxjs';
 import { SetRecipeId } from '../redux/recipe.actions';
+import { defaultFormStateModel } from '../../form/redux/form.model';
 
 @Component({
   selector: 'app-recipe',
@@ -14,7 +15,8 @@ export class RecipeComponent implements OnDestroy {
 
   constructor(
     protected readonly store: Store,
-    protected readonly route: ActivatedRoute
+    protected readonly route: ActivatedRoute,
+    protected readonly router: Router
   ) {
     this.subscribeToRoute();
   }
@@ -27,7 +29,15 @@ export class RecipeComponent implements OnDestroy {
             new SetRecipeId({ recipeId: params['id'] })
           );
         }),
-        takeUntil(this.destroy$)
+        takeUntil(this.destroy$),
+        catchError(() => {
+          return from(
+            this.router.navigate([
+              'recipe',
+              defaultFormStateModel.selectedRecipe,
+            ])
+          );
+        })
       )
       .subscribe();
   }

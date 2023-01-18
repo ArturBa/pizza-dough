@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Select } from '@ngxs/store';
-import { RecipeState } from '../../redux/recipe.store';
+import { RecipeState } from '../../redux/recipe.state';
 import { Observable, filter, map } from 'rxjs';
 import { RecipeItem } from '../../redux/recipe.model';
 

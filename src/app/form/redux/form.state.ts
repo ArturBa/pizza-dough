@@ -7,7 +7,7 @@ import {
   SetOvenType,
   SetRecipe,
 } from './form.actions';
-import { tap } from 'rxjs';
+import { filter, tap } from 'rxjs';
 import {
   FormStateModel,
   OvenTypes,
@@ -18,7 +18,7 @@ import { PathFormService } from '../service/path.service';
 
 type Ctx = StateContext<FormStateModel>;
 
-const defaultOvenType = 'S';
+const defaultOvenType = defaultFormStateModel.selectedOvenType;
 
 @State<FormStateModel>({
   name: 'formInfo',
@@ -114,9 +114,11 @@ export class FormState {
     recipes,
     selectedRecipe,
   }: FormStateModel): OvenTypes['key'] {
-    if (recipes.length == 0) {
-      return defaultOvenType;
-    }
-    return recipes.filter(recipe => recipe.id == selectedRecipe)[0].oven;
+    const filteredRecipe = recipes.filter(
+      recipe => recipe.id == selectedRecipe
+    );
+    return filteredRecipe.length == 0
+      ? defaultOvenType
+      : filteredRecipe[0].oven;
   }
 }

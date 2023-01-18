@@ -4,7 +4,7 @@ import { IngredientsComponent } from './ingredients.component';
 import { TableModule } from '../../../components/table/table.module';
 import { NgxsModule } from '@ngxs/store';
 import { DoughState } from '../../../dough/redux';
-import { RecipeState } from '../../redux/recipe.store';
+import { RecipeState } from '../../redux/recipe.state';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('IngredientsComponent', () => {
