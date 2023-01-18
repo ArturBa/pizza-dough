@@ -1,6 +1,7 @@
 {
   "title": "Lehman Dough Recipe For An Event",
   "oven": "S",
+  "style": "Y",
   "ingredients": {
     "flour": {
       "bakers": "100",

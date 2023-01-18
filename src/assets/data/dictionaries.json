@@ -12,5 +12,31 @@
       "key": "W",
       "value": "Wood Fired Oven"
     }
+  ],
+  "STYLE": [
+    {
+      "key": "A",
+      "value": "American"
+    },
+    {
+      "key": "Y",
+      "value": "New York"
+    },
+    {
+      "key": "C",
+      "value": "Chicago"
+    },
+    {
+      "key": "N",
+      "value": "Neapolitan"
+    },
+    {
+      "key": "S",
+      "value": "Sicilian"
+    },
+    {
+      "key": "D",
+      "value": "Detroit"
+    }
   ]
 }

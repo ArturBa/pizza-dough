@@ -1,6 +1,7 @@
 {
   "title": "Vera Pizza Napolitana Dough Recipe",
   "oven": "W",
+  "style": "N",
   "ingredients": {
     "flour": {
       "bakers": "100",
