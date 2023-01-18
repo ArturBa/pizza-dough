@@ -1,6 +1,7 @@
 {
   "title": "Pete-zza's Papa John's Clone Pizza",
   "oven": "S",
+  "style": "A",
   "ingredients": {
     "flour": {
       "bakers": "100",

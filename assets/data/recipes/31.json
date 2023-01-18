@@ -1,6 +1,7 @@
 {
   "title": "Andrew Bellucci New York Pizza Dough Recipe",
   "oven": "S",
+  "style": "Y",
   "ingredients": {
     "flour": {
       "bakers": "100",

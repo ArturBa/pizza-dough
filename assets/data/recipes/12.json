@@ -1,6 +1,7 @@
 {
   "title": "TXCraig's Neapolitan Pizza Dough",
   "oven": "W",
+  "style": "N",
   "ingredients": {
     "flour": {
       "bakers": "100",

@@ -1,6 +1,7 @@
 {
   "title": "Scott 123 Easy New York Pizza",
   "oven": "S",
+  "style": "Y",
   "ingredients": {
     "flour": {
       "bakers": "100",

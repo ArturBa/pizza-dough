@@ -1,6 +1,7 @@
 {
   "title": "Essen1's NY Style Pizza Dough",
   "oven": "S",
+  "style": "C",
   "ingredients": {
     "flour": {
       "bakers": "100",
