@@ -1,6 +1,7 @@
 {
   "title": "Chicago Deep Dish Pizza",
   "oven": "S",
+  "style": "C",
   "ingredients": {
     "flour": {
       "bakers": "100",
