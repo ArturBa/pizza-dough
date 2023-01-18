@@ -1,6 +1,7 @@
 {
   "title": "Tony Gemigiani New York Pizza Dough",
   "oven": "S",
+  "style": "Y",
   "ingredients": {
     "flour": {
       "bakers": "100",

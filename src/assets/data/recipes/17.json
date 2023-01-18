@@ -1,6 +1,7 @@
 {
   "title": "JerryMac's NY Style Pizza",
   "oven": "S",
+  "style": "Y",
   "ingredients": {
     "flour": {
       "bakers": "100",
