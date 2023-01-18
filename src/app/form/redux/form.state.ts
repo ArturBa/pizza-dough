@@ -8,7 +8,12 @@ import {
   SetRecipe,
 } from './form.actions';
 import { tap } from 'rxjs';
-import { FormStateModel, OvenTypes, RecipeListItem } from './form.model';
+import {
+  FormStateModel,
+  OvenTypes,
+  RecipeListItem,
+  defaultFormStateModel,
+} from './form.model';
 import { PathFormService } from '../service/path.service';
 
 type Ctx = StateContext<FormStateModel>;
@@ -17,12 +22,7 @@ const defaultOvenType = 'S';
 
 @State<FormStateModel>({
   name: 'formInfo',
-  defaults: {
-    ovenTypes: [],
-    selectedOvenType: defaultOvenType,
-    recipes: [],
-    selectedRecipe: 0,
-  },
+  defaults: defaultFormStateModel,
 })
 @Injectable()
 export class FormState {

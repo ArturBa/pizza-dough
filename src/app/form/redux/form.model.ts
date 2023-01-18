@@ -15,3 +15,10 @@ export interface FormStateModel {
   recipes: RecipeListItem[];
   selectedRecipe: number;
 }
+
+export const defaultFormStateModel: FormStateModel = {
+  ovenTypes: [],
+  selectedOvenType: 'S',
+  recipes: [],
+  selectedRecipe: 18,
+};
