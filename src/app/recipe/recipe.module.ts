@@ -5,7 +5,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { InstructionsModule } from './instructions/instructions.module';
 import { IngredientsModule } from './ingredients/ingredients.module';
-import { RecipeState } from './redux/recipe.store';
+import { RecipeState } from './redux/recipe.state';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

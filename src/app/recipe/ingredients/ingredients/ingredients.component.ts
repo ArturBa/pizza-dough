@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { DoughState, WeightUnitTypes } from '../../../dough/redux';
 import { Observable, Subject, combineLatest, map, filter } from 'rxjs';
-import { RecipeState } from '../../redux/recipe.store';
+import { RecipeState } from '../../redux/recipe.state';
 import { RecipeIngredients, RecipeItem } from '../../redux/recipe.model';
 import { RowDataInterface } from '../../../components/table/row/row.component';
 
