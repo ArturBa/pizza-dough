@@ -1,5 +1,21 @@
 <tr>
-  <td>{{ rowData.title }}</td>
-  <td>{{ (rowData.weight | number) ?? emptyValue }}</td>
-  <td>{{ rowData.recommended ?? emptyValue }}</td>
+  <td scope="row">{{ rowData.title }}</td>
+  <td>
+    <div class="data-title">
+      {{ (tableHeaders$ | async)!.get('bakers') }}
+    </div>
+    {{ rowData.bakers | number }}%
+  </td>
+  <td>
+    <div class="data-title">
+      {{ (tableHeaders$ | async)!.get('weight') }}
+    </div>
+    {{ rowData.weight | number }}
+  </td>
+  <td>
+    <div class="data-title">
+      {{ (tableHeaders$ | async)!.get('recommended') }}
+    </div>
+    {{ rowData.recommended ?? emptyValue }}
+  </td>
 </tr>
