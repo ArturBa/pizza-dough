@@ -1,4 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  TemplateRef,
+  ViewEncapsulation,
+} from '@angular/core';
 import { RowDataInterface } from '../row/row.component';
 import { DoughStateModelDefaults, WeightUnitTypes } from '../../../dough/redux';
 
@@ -10,8 +16,10 @@ import { DoughStateModelDefaults, WeightUnitTypes } from '../../../dough/redux';
 })
 export class TableComponent {
   @Input() data!: RowDataInterface[];
-  @Input() caption = 'Table caption';
+  @Input() caption: string | undefined;
   @Input() unit: WeightUnitTypes = DoughStateModelDefaults.unit;
+
+  @Input() captionTemplate: TemplateRef<ElementRef> | undefined;
 
   get totalWeight(): number {
     return (

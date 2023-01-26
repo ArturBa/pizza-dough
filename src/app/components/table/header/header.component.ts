@@ -42,8 +42,4 @@ export class HeaderComponent {
   }
 
   tableHeaders$ = tableHeaders$;
-
-  constructor() {
-    tableHeaders$.subscribe(console.log);
-  }
 }

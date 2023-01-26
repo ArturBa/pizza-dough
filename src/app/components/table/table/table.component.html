@@ -1,4 +1,7 @@
 <table [attr.aria-label]="caption">
+  <caption *ngIf="captionTemplate">
+    <ng-container [ngTemplateOutlet]="captionTemplate"></ng-container>
+  </caption>
   <thead>
     <app-header [unit]="unit"></app-header>
   </thead>
