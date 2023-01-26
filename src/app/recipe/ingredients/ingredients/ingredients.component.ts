@@ -1,6 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Select } from '@ngxs/store';
-import { DoughState, WeightUnitTypes } from '../../../dough/redux';
+import {
+  DoughState,
+  DoughStateModelDefaults,
+  WeightUnitTypes,
+} from '../../../dough/redux';
 import { Observable, Subject, combineLatest, map, filter } from 'rxjs';
 import { RecipeState } from '../../redux/recipe.state';
 import { RecipeIngredients, RecipeItem } from '../../redux/recipe.model';
@@ -35,6 +39,8 @@ export class IngredientsComponent implements OnDestroy {
 
   @Select(RecipeState.getSelectedRecipe)
   readonly selectedRecipe$!: Observable<RecipeItem>;
+
+  readonly DoughStateModelDefaults = DoughStateModelDefaults;
 
   get tableData$(): Observable<RowDataInterface[]> {
     return combineLatest([
