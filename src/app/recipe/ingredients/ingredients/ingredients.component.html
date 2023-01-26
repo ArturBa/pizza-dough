@@ -1,4 +1,5 @@
 <h2>Ingredients</h2>
 <app-table
   [data]="(tableData$ | async) ?? []"
+  [unit]="(weightUnit$ | async) ?? DoughStateModelDefaults.unit"
   caption="Ingredients"></app-table>
