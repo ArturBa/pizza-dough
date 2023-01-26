@@ -47,9 +47,10 @@ export class DoughState {
   setWeightUnit(ctx: Ctx, setWeightUnit: SetWeightUnit) {
     const { unit, weight } = ctx.getState();
     const newUnit = setWeightUnit.payload.unit;
-    const newWeight =
+    const newWeight = Math.round(
       (weight / (weightUnits.get(unit ?? 'g')?.inGrams ?? 1)) *
-      (weightUnits.get(newUnit)?.inGrams ?? 1);
+        (weightUnits.get(newUnit)?.inGrams ?? 1)
+    );
     ctx.patchState({ unit: newUnit, weight: newWeight });
   }
 }
