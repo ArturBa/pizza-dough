@@ -1,2 +1,4 @@
 <h2>Ingredients</h2>
-<app-table [data]="(tableData$ | async) ?? []"></app-table>
+<app-table
+  [data]="(tableData$ | async) ?? []"
+  caption="Ingredients"></app-table>

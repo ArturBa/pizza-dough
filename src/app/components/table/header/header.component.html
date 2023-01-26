@@ -1,5 +1,5 @@
-<tr>
-  <th></th>
-  <th>Weight ({{ unit }})</th>
-  <th>Recommended</th>
+<tr *ngIf="tableHeaders$ | async as tableHeaders">
+  <th scope="col" *ngFor="let headerKey of tableHeaderOrder">
+    {{ tableHeaders.get(headerKey) }}
+  </th>
 </tr>

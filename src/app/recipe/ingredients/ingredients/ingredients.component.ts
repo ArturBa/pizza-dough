@@ -54,6 +54,7 @@ export class IngredientsComponent implements OnDestroy {
         return Object.entries(recipe.ingredients).map(([k, v]) => ({
           title: this.rowTitle.get(k as keyof RecipeIngredients) ?? k,
           weight: (v.bakers / totalBakers) * totalWeight,
+          bakers: v.bakers,
           recommended: v.recommended,
         }));
       })

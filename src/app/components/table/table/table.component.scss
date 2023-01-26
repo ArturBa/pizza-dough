@@ -1,4 +1,5 @@
 @use 'color';
+@use 'media-queries';
 
 $accent-color: map-get(
   $map: color.$accent,
@@ -19,14 +20,14 @@ $header-gray-color: map-get(
     border-collapse: collapse;
     text-align: left;
 
+    caption {
+      visibility: collapse;
+    }
+
+    .data-title,
     th {
       color: $header-gray-color;
       font-weight: 500;
-      width: 30%;
-
-      &:last {
-        width: 40%;
-      }
     }
 
     th,
@@ -37,6 +38,51 @@ $header-gray-color: map-get(
 
     tr {
       background-color: inherit;
+    }
+
+    // Mobile view
+
+    thead {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    app-total-weight-row {
+      display: none;
+    }
+
+    @include media-queries.web {
+      th,
+      td {
+        display: table-cell;
+      }
+
+      .data-title {
+        display: none;
+      }
+
+      thead {
+        display: table-header-group;
+      }
+
+      app-total-weight-row {
+        display: contents;
+      }
+
+      th {
+        width: 15%;
+        &:first {
+          width: 30%;
+        }
+
+        &:last {
+          width: 40%;
+        }
+      }
     }
 
     :where(app-row, app-total-weight-row):nth-child(odd) {

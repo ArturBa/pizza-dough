@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "prepare": "husky install",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && ng run pizza-dough:storybook -p 6006",
+    "storybook": "npm run docs:json && ng run pizza-dough:storybook",
     "build-storybook": "npm run docs:json && ng run pizza-dough:build-storybook",
     "postinstall": "ngcc"
   },

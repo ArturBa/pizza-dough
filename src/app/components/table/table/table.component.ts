@@ -10,6 +10,7 @@ import { DoughStateModelDefaults, WeightUnitTypes } from '../../../dough/redux';
 })
 export class TableComponent {
   @Input() data!: RowDataInterface[];
+  @Input() caption = 'Table caption';
   @Input() unit: WeightUnitTypes = DoughStateModelDefaults.unit;
 
   get totalWeight(): number {
