@@ -4,7 +4,11 @@ $warning-color: color.$warning;
 $icon-size: 1rem;
 
 :host {
-  display: flex;
+  &.visible {
+    display: flex;
+  }
+  display: none;
+
   align-items: center;
   gap: 0.25rem;
   padding-inline: 0.5rem;

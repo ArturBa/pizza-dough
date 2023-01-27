@@ -7,9 +7,9 @@ import { SelectorDirective } from './select/select.directive';
 import { IconModule } from '../icon/icon.module';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 
-const exports = [ControlFieldComponent];
+const exportComponents = [ControlFieldComponent, ErrorMessageComponent];
 @NgModule({
-  declarations: [...exports, ErrorMessageComponent],
+  declarations: [...exportComponents],
   imports: [
     CommonModule,
     IconModule,
@@ -18,7 +18,7 @@ const exports = [ControlFieldComponent];
     SelectorDirective,
   ],
   exports: [
-    ControlFieldComponent,
+    ...exportComponents,
     InputDirective,
     InputAfterDirective,
     SelectorDirective,

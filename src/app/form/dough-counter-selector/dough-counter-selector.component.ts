@@ -29,6 +29,9 @@ export class DoughCounterSelectorComponent implements OnDestroy {
         filter(value => value !== null)
       )
       .subscribe(value => {
+        if (this.control.invalid) {
+          return;
+        }
         this.store.dispatch(new SetDoughCount({ count: value! }));
       });
   };

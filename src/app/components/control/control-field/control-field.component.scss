@@ -46,6 +46,7 @@ $outline-focus-width: 2px;
 }
 
 $border-radius: 8px;
+$invalid-input: '.ng-invalid.ng-touched';
 
 .form-field-wrapper {
   margin-top: 1.5rem;
@@ -60,12 +61,12 @@ $border-radius: 8px;
 
   @include outline-transition;
 
-  &:has(> .ng-invalid.ng-touched) {
+  &:has(> #{$invalid-input}) {
     outline-color: $warning-color;
     outline-width: $outline-focus-width;
   }
 
-  &:not(:has(> .ng-invalid.ng-touched)) {
+  &:not(:has(> #{$invalid-input})) {
     app-error-message {
       display: none;
     }
@@ -87,7 +88,7 @@ $border-radius: 8px;
 
   app-error-message {
     position: absolute;
-    top: calc(2 * 0.875rem + 1rem + 0.25rem);
+    top: calc(2 * 0.875rem + 1rem);
   }
 
   .app-input {
