@@ -1,10 +1,6 @@
+<h2>Ingredients</h2>
 <app-table
   [data]="(tableData$ | async) ?? []"
   [unit]="(weightUnit$ | async) ?? DoughStateModelDefaults.unit"
-  caption="Ingredients"
-  [captionTemplate]="captionTemplate">
+  caption="Ingredients">
 </app-table>
-
-<ng-template #captionTemplate>
-  <h2>Ingredients</h2>
-</ng-template>

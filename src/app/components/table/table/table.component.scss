@@ -21,7 +21,7 @@ $header-gray-color: map-get(
     text-align: left;
 
     .data-title,
-    th {
+    thead th {
       color: $header-gray-color;
       font-weight: 500;
     }
