@@ -1,0 +1,9 @@
+<app-error></app-error>
+<ng-container [ngSwitch]="errorKey">
+  <p *ngSwitchCase="'required'">This field is required</p>
+  <p *ngSwitchCase="'min'">
+    The minimal value is {{ error!['min'] ?? '' }}. Actual is
+    {{ error!['actual'] }}
+  </p>
+  <p *ngSwitchDefault>error-message works!</p>
+</ng-container>

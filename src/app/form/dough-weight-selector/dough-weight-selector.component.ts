@@ -4,6 +4,7 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, Subject, filter, map, takeUntil } from 'rxjs';
 import {
   DoughState,
+  DoughStateModelDefaults,
   SetDoughWeight,
   WeightUnit,
   WeightUnitTypes,
@@ -33,7 +34,7 @@ export class DoughWeightSelectorComponent implements OnDestroy {
     })
   );
 
-  readonly control = new FormControl<number>(250, [
+  readonly control = new FormControl<number>(DoughStateModelDefaults.weight, [
     Validators.min(10),
     Validators.pattern(/\d+/),
     Validators.required,
@@ -51,6 +52,9 @@ export class DoughWeightSelectorComponent implements OnDestroy {
         filter(value => value !== null)
       )
       .subscribe(value => {
+        if (this.control.invalid) {
+          return;
+        }
         this.store.dispatch(new SetDoughWeight({ weight: value! }));
       });
   };

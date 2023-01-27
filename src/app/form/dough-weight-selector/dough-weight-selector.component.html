@@ -9,4 +9,5 @@
     [min]="weight?.min ?? 10"
     [step]="weight?.step ?? 10" />
   <span appInputAfter>{{ weightUnit$ | async }}</span>
+  <app-error-message [control]="control"></app-error-message>
 </app-control-field>

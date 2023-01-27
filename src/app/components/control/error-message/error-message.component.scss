@@ -1,0 +1,27 @@
+@use 'color';
+
+$warning-color: color.$warning;
+$icon-size: 1rem;
+
+:host {
+  &.visible {
+    display: flex;
+  }
+  display: none;
+
+  align-items: center;
+  gap: 0.25rem;
+  padding-inline: 0.5rem;
+
+  color: $warning-color;
+
+  app-error {
+    width: $icon-size;
+    height: $icon-size;
+    fill: $warning-color;
+  }
+
+  p {
+    margin: 0;
+  }
+}
