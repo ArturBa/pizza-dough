@@ -5,10 +5,11 @@ import { ControlFieldComponent } from './control-field/control-field.component';
 import { InputAfterDirective } from './input-after/input-after.directive';
 import { SelectorDirective } from './select/select.directive';
 import { IconModule } from '../icon/icon.module';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 const exports = [ControlFieldComponent];
 @NgModule({
-  declarations: [...exports],
+  declarations: [...exports, ErrorMessageComponent],
   imports: [
     CommonModule,
     IconModule,

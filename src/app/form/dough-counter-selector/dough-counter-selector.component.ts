@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Subject, filter, takeUntil } from 'rxjs';
-import { SetDoughCount } from '../../dough/redux';
+import { DoughStateModelDefaults, SetDoughCount } from '../../dough/redux';
 
 @Component({
   selector: 'app-dough-counter-selector',
@@ -12,7 +12,7 @@ import { SetDoughCount } from '../../dough/redux';
 export class DoughCounterSelectorComponent implements OnDestroy {
   protected readonly destroy$ = new Subject<void>();
 
-  readonly control = new FormControl<number>(2, [
+  readonly control = new FormControl<number>(DoughStateModelDefaults.count, [
     Validators.min(1),
     Validators.pattern(/\d+/),
     Validators.required,

@@ -21,8 +21,10 @@ $white-background: map-get(
   $key: 900,
 );
 
-$padding-inline: 14px;
-$padding-block: 12px;
+$warning-color: color.$warning;
+
+$padding-inline: 0.875rem;
+$padding-block: 0.75rem;
 $transition-time: 250ms;
 $outline-width: 1px;
 $outline-focus-width: 2px;
@@ -58,6 +60,16 @@ $border-radius: 8px;
 
   @include outline-transition;
 
+  &:has(> .ng-invalid.ng-touched) {
+    outline-color: $warning-color;
+    outline-width: $outline-focus-width;
+  }
+
+  &:not(:has(> .ng-invalid.ng-touched)) {
+    app-error-message {
+      display: none;
+    }
+  }
   &:focus-within,
   &:focus-within .app-input-after {
     outline-color: $focus-color;
@@ -71,6 +83,11 @@ $border-radius: 8px;
     line-height: 182%;
     color: $regular-color;
     @include form-ellipsis;
+  }
+
+  app-error-message {
+    position: absolute;
+    top: calc(2 * 0.875rem + 1rem + 0.25rem);
   }
 
   .app-input {
@@ -105,7 +122,7 @@ $border-radius: 8px;
     }
   }
 
-  & > *:not(label, app-chevron) {
+  & > *:not(label, app-chevron, app-error-message) {
     @include internal-padding;
   }
 
